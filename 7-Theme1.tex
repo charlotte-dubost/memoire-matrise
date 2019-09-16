@@ -165,5 +165,109 @@ Dans la partie qui suit, on étudie pour chaque paramètre dont dépendent $H_ma
 \\ 
 La variation de ces paramètres doit respecter les valeurs limites suivantes, en dessous desquelles le modèle n'est plus valide:
 \begin{itemize}
-    \item 
+    \item Pour $F$: Pour que le modèle soit valide il faut qu’il y ait un saut, l'énergie de déformation élastique doit être suffisante pour faire décoller la masse 2, ce qui se traduit par: $\frac{1}{2} \frac{F^2}{k}>\frac{(m_r g)^2}{4k}$  soit: $F>\frac{m_r g}{/sqrt{2}}$
+    \item Pour $k$: Le ressort doit pouvoir soutenir la masse 1: $\frac{m_r g}{2k}<2a$ c'est à dire: $k>\frac{m_r g}{4a}$ 
+    \item Pour $m_r$: Diminuer $m_r$ revient à retirer de la matière, il y a donc une masse limite dépendant des propriétés mécaniques du matériau en dessous de laquelle il y aura rupture lors de la compression, la roue étant devenue trop fragile.
 \end{itemize}
+Les limites seront indiquées par des pointillés sur les tracés plus bas
+\\
+On applique le modèle développé dans la section précédente aux quatre cas suivants:
+\begin{itemize}
+	\item Une roue en acier dont les dimensions ont été mesurées sur une roue existante (cas témoin)
+	\item Une roue en matériau composite de dimensions identiques à celles de la première
+	\item Une roue en matériau composite de section elliptique dont le prolongement du petit axe coincide avec l'axe de révolution (cas 1)
+	\item Une roue en matériau composite de section elliptique dont le prolongement du grand axe coincide avec l'axe de révolution (cas 2)
+\end{itemize}
+\\
+\\
+
+figures: ellipse cas 1 et 2 + geo section circulaire
+
+
+Si on fait varier un paramètre indépendamment des autres, il est nécessaire d'affecter une valeur à ces derniers, fixés momentanément:
+\begin{itemize}
+	\item Les géométries considérées sont celles présentées en figure_
+	\item On considère que la force $F$ appliquée au système a pour norme $900 N$, correspondant au poids d'un athlète se suspendant à une main à la roue.
+	\item Les propriétés mécaniques de l'acier sont les suivantes $E_a=210GPa$, $rho_a=7800 kg m^-3$
+	\item Pour le matériau composite, on considère dans un premier temps qu'il s'agit d'une matrice nylon renforcée de fibres de carbones courtes, qu'on considère isotrope. On a donc: $E_c=9 GPa$, $G=3.8 GPa$, $rho_c=1170 kg m^-3$, avec une contrainte à la rupture $\sigma_r=63 MPa$
+
+Dans ce qui suit, lorsqu'on fait varier une seul paramètre, les autres, momentanément fixés, prennent les valeurs qui leur ont été attribuées ci-dessus.
+\\
+\\ 
+Avec ces données il est possible de déterminer la masse minimale que devra avoir la roue (on considère le cas d'une section circulaire):
+\begin{itemize}
+\item On commence par calculer les contraintes lorsque la roue est comprimée par une force $F$: La contrainte dans l'arrête extérieure s'exprime $\sigma_i=k_i\sigma$ \cite{roark},
+où sigma est la contrainte calculée pour une poutre droite: $\sigma=\frac{Mr_2}{I_z}$, avec $I_z=\frac{\pi}{2}(r_2^4-r_1^4)$ et $M=\frac{\pi}{4}FR$.
+D'après les formules du livre de Roark, $k_i$ s'exprime $k_i=\frac{1}{4\beta}\frac{1-\beta}{\frac{R_c}{r_2}-1}[1+(\frac{r_1}{r_2})^2]$ avec $\beta=\frac{1}{2}[\frac{2R_c}{r_2}-\sqrt{(\frac{R_c}{r_2})^2-1}-\sqrt{(\frac{R_c}{r_2})^2-(\frac{r_1}{r_2})^2}]$ \\
+Il ne reste plus qu'à déterminer le rayon de courbe de la roue comprimée, comme illustré sur la figure ci-dessous: $R_c=\frac{a_r^2}{b_r}$, $a_r$ et $b_r$ étant respectivement les demi grand axe et demi petit axe de l'ellipse que devient la roue lorsqu'elle est comprimée.\\
+Pour calculer $a_r$ et $b_r$, on utilise les formules du livre de Roark qui donnent les variations de diamètre horizontal $\DeltaD_h$ et vertical $\DeltaD_v$ d'une anneau comprimé selon son diamètre avec une force $F$, et on aura ainsi $a_r=R+\frac{\DeltaD_h}{2}$ et $b_r=R+\frac{\DeltaD_v}{2}$.\\
+D'après les formules de Roark, $\DeltaD_h=\frac{FR^3}{EI}(\frac{1}{2}(1+\frac{I}{AR^2}+\frac{2EI}{GAR^2})-1+\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$ et $\DeltaD_v=-\frac{FR^3}{EI}(\frac{\pi}{4}(1-\frac{I}{AR^2}+\frac{2EI}{GAR^2})-\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$, où $A$ est l'aire de section, $E$, le module de Young, $G$, le module de cisaillement, $R$, le rayon médian de la roue, et $I$ le moment de section quadratique selon l'axe principal perpendiculaire au plan de la roue.
+\item En implémentant numériquement les équations ci-dessus, on est capable de calculer les contraintes maximales auxquelles sera soumise la roue pour une force de compression $F$ donnée. Pour $F=900N$, en fixant $r_2$ et en faisant varier $r_1$ de $0$ à $r_2$, on est capable de tracer les contraintes maximales, en fonction de la masse de la roue, $m_r=2\pi\rho A R$. Comme l'illustre la figure ci-dessous, il est alors possible de déterminer la masse à partir de laquelle les contraintes passent sous le seuil de $63 MPa$, et donc à partir de laquelle il y a rupture.
+
+figure: stress/masse: Contraintes maximales dans la roue en fonction de sa masse, pour $r_2=2.5 cm$ et $r_1$ variant de $0.0$ à $2.49 cm$ (gauche) et $r_2=5.0 cm$ et $r_1$ variant de $0.0$ à $4.99 cm$
+
+
+\item On peut donc implémenter ce procédé numériquement pour déterminer cette valeur minimale de la masse pour en fonction de $r_2$. Le resultat de l'implémentation est présenté à la figure ci-dessous. 
+
+figure: Masse minimale de la roue en fonction de $r_2$
+
+
+\item Pour ce qui suit, $r_2$ sera fixé à $1.75 cm$, la masse minimale sera donc $2.0 kg$
+
+\\
+\\
+Variations de $H_{max}$ et de $\frac{E_{p,g}}{E{tot}}$
+
+Figures
+
+Remarques:
+\begin{itemize}
+\item Les tracés adimensionnels permettent d'étudier une tendance globale, ainsi que de s'affranchir de la dépendance des résultats avec les autres paramètres.
+\item Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
+\item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas)
+\item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure_, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, sur la figure_ (Hmaxf) l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée, surtout pour la roue composite à section circulaire.
+\item A l'inverse, la courbe $H_{max}=f(k)$ s'aplatit rapidement à mesure que la raideur augmente. Il s'agit de trouver un compromis entre la solidité et la maximisation de la hauteur de saut.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
