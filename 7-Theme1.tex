@@ -1,22 +1,169 @@
 \Chapter{ETUDE THÉORIQUE}\label{sec:Theme1}
 \begin{table}[htbp]
   \centering
-  \caption{Constantes et variables du modèle analytique}
+  \caption{Constantes et variables des modèle analytiques}
   \begin{tabular}{|c|l|}
     \hline\rowcolor[gray]{0.8}\color{black}
     Symbole         & Description\\\hline
-    $\lambda$       & Taux d'arrivée moyen des requêtes de réservation de ressources\\\hline
-    $\frac{1}{\mu}$ & Durée moyenne d'une session\\\hline
-    $C$             & Capacité d'une cellule (nombre de sessions supportées)\\\hline
-    $v_{moy}$       & Vitesse moyenne des MN dans le réseau d'accès\\\hline
-    $L$             & Longueur d'un côté d'une cellule carrée\\\hline
-    $n$             & Nombre moyen de MN dans une cellule\\\hline
-    $\rho$          & Charge d'une cellule\\\hline
-    $P_b$           & Probabilité de blocage d'une requête de réservation\\\hline
-    $P_f$           & Probabilité d'interruption forcée d'une session\\\hline
-    $P_c$           & Probabilité de compléter une session avec succès\\\hline
-    $\Delta{}T$     & Délai de transmission\\\hline
+    $A$           & Aire de la section\\\hline
+    $a$       & Rayon exeterne de la roue: $a=R+r_2$\\\hline
+    $\delta$             & Flèche imposée par la force de compression\\\hline
+    $E$           & Module d'Young du matériau\\\hline
+    $E_{p,g}$          & Energie potentielle gravitationnelle\\\hline
+    $E_{tot}$          & Energie mécanique totale\\\hline
+    $F$             & Force de compression appliquée à la roue\\\hline
+    $g$     & Accélération gravitationnelle\\\hline
+    $H_{max}$          & Hauteur de saut maximale\\\hline
+    $I$           & Moment quadratique de la section\\\hline
+    $k$             & raideur équivalente de la roue\\\hline
+    $k_1, k_2$           & Rayons de giration principaux de la roue\\\hline
+    $m_r$          & Masse de la roue\\\hline
+    $\Omega_0$           & Vitesse angulaire à laquelle la roue décrit des cercles (phase 1 du mouvement)\\\hline
+    $\omega_0$           & Vitesse de rotation de la roue sur elle même lorsqu'elle roule (phase 1 du mouvement)\\\hline
+    $R$       & Rayon médian de la roue\\\hline
+    $r_1$ & Rayon interne de section pour une section circulaire\\\hline
+    $r_2$             & rayon externe de section pour une section circulaire\\\hline
+    $\theta_0$           & Angle d'inclinaison de la roue par rapport à la verticale en régime permanent\\\hline
+    $r_c$           & Rayon des cercles obtenus par projection sur le sol du centre de gravité de la roue (phase 1)\\\hline
+    $\rho$           & Masse volumique du matériau\\\hline
   \end{tabular}
   \label{tab:Definitions}
 \end{table}
-Texte / Text.
+
+
+\section{Etude du saut d'une roue Cyr}
+\subsection{Description du mouvement}
+La roue Cyr est comprimée d'une flèche $\delta$ imposée par une force exercée selon l'axe de son diamètre par une force $F$ puis relâchée. Une partie de l'énergie de déformation élastique est transformée en saut. On notera $H_max$ la hauteur correspondant à l'énergie potentielle par laquelle s'élève le centre de gravité de la roue de sa position au repos à sa hauteur maximale.
+
+
+\subsubsection{Hypothèses}
+\begin{itemize}
+    \item On considère que le support contre lequel la roue est comprimée est parfaitement rigide.
+    \item On néglige la force de trainée de l'air.
+\end{itemize}
+
+\subsubsection{Modèle deux degrés de liberté}
+On modélise la roue Cyr par deux masses ponctuelles égales $\frac{m_r}{2}$ reliées par un ressort de longueur à vide $2a$, le diamètre externe de la roue, et de rigidité équivalente $k=\frac{4\pi EI}{(\pi^2 -8)R^3}$ \cite{yangkim}. Les positions des masses sont reperées par les ordonnées $y_1$ et $y_2$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/repos.png}
+\caption{Système au repos}
+\label{fig:repos}
+\end{figure}
+
+On note $t_0<0$ le moment auquel on relâche le ressort. $t=0$ correspond au moment auquel la masse inférieure quitte le sol, c'est à dire au moment où la force qui lui est transmise par le ressort devient suffisante pour prendre le dessus sur la gravité:$\frac{m_r g}{2}=k(y_1-2a)$. \\
+Les positions des masses à $t=0$ sont donc $y_1=2a+\frac{m_r g}{2k}$ et $y_2=0$
+On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa hauteur maximale.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/saut.png}
+\caption{Saut du système}
+\label{fig:saut}
+\end{figure}
+
+\subsection{Mise en équations}
+\begin{equation}
+   t_0<t<0: 
+  \begin{cases}
+    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-2a)+\frac{m_r}{2}g=0\\
+    y_2=0
+  \end{cases}
+  \label{eq:1}
+\end{equation}
+
+On pose: $\tau=t-t_0$
+Pour $t_0<t<0$, le mouvement est régi par le système suivant:
+
+\begin{equation}
+  \begin{cases}
+    \tau=t-t_0 \\
+    \alpha_0=\sqrt{\frac{2k}{m_r}}\\
+    y_1(\tau)=(\frac{m_r g}{2k}-\frac{F}{k})\cos(\alpha_0 \tau)-\frac{m_r g}{2k}+2a \\
+    y_2=0
+  \end{cases}
+  \label{eq:2}
+\end{equation}
+
+\begin{equation}
+   0<t<t_f: 
+  \begin{cases}
+    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-y_2-2a)+\frac{m_r}{2}g=0\\
+    \frac{m_r}{2}\frac{d^2y_2}{dt^2}+k(y_2-y_1+2a)+\frac{m_r}{2}g=0
+  \end{cases}
+  \label{eq:3}
+\end{equation}
+
+Avec les conditions initiales: 
+\begin{equation}
+  \begin{cases}
+    y_1(0)=2a+\frac{m_r g}{2k}\\
+    \frac{d y1}{dt}(0)=v_{10}\\
+    y_2(0)=0 \\
+    \frac{d y2}{dt}(0)=0
+  \end{cases}
+  \label{eq:4}
+\end{equation}
+
+Le mouvement pour $0<t<t_f$ est décrit par les équations:
+
+\begin{equation}
+  \begin{cases}
+    \alpha=\sqrt{\frac{4k}{m_r}}\\
+    y_1(t)=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t+(\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+\frac{m_r g}{2k}+4a) \\
+    y_2(t)=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t-(\frac{m_r g}{2k})\cos{\alpha t}-\frac{v_{10}}{\alpha}\sin{\alpha t}+\frac{m_r g}{2k}) 
+  \end{cases}
+  \label{eq:5}
+\end{equation}
+
+Ce qui nous donne les expressions temporelles de la variation de l'allongement du système et de l'évolution de la positon de son centre de gravité:
+
+\begin{equation}
+  \begin{cases}
+    y_1(t)-y_2(t)= (\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+2a\\
+    \frac{y_1(t)+y_2(t)}{2}=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t+\frac{m_2 g}{k} +2a)
+  \end{cases}
+  \label{eq:6}
+\end{equation}
+
+Ces équations permettent de tracer des animations du mouvement afin de mieux appréhender ce dernier par la suite. Tout au long de l'élévation du centre de gravité de la roue, on peut observer des déformations correspondant au second mode vibratoire d'un anneau (déformations planes).
+\\ 
+\\
+Bilan d'énergie appliqué au système {masse 1 + masse 2 + ressort}
+\begin{itemize}
+    \item On prend pour référence de l'énergie potentielle la position du système à l'équilibre statique: $y_{1,ref}=2a-\frac{m_r g}{2k}$ et $y_{2,ref}=0$.
+    \item $t<t_0$: $E=\frac{F^2}{2k}$
+    \item $t=0$ : $E=\frac{1}{4}m_r v_{10}^2 +\frac{5}{8}\frac{(m_r g)^2}{k} $
+\end{itemize}
+
+On en déduit l'expression de la vitesse de la masse 1 à $t=0$: $v_{10}=\sqrt{\frac{2(F^2-\frac{5(m_r g)^2}{4})}{m_r k}}$ \\
+
+Lorsqu'on arrive à $t=t_f$, la vitesse du centre de gravité s'annule. Il suffit alors de dériver l'expression de la position du centre de gravité déterminée ci-dessus pour obtenir: $t_f=\frac{v_{10}}{g}$, soit: 
+$$ =\sqrt{\frac{2(F^2-\frac{5(m_r g)^2}{4})}{m_r k g^2}}$$
+
+On substitue ensuite cette expression à $t_f$ dans l'expression de la position du centre de gravité pour svoir la hauteur maximale de ce dernier, à laquelle on soustrait $y_{1,ref}$ pour obtenir finalement l'expression de $H_{max}$.
+\\ \\
+Ainsi: $H_{max}=\frac{1}{2}(\frac{F^2}{m_r k g}-\frac{0.25m_r g}{k})$
+\\
+Ou encore, en fonction de la pulsation propre $\alpha$: $H_{max}=\frac{1}{2}(\frac{4F^2}{m_r^2\alpha^2 g}-\frac{g}{\alpha^2})$.
+\\ \\
+Ainsi, les paramètres influençant la hauteur maximale de saut du système sont:
+\begin{itemize}
+    \item La force de compression $F$ à laquelle ce dernier est soumis initialement
+    \item La masse du système, déterminée par sa géométrie et la masse volumique du matériau
+    \item La raideur équivalente du système qui dépend de sa géométrie et du module de Young du matériau.
+\end{itemize}
+
+L'expression de $H_{max}$ nous permet d'étudier l'efficacité énergétique du système, c'est à dire d'estimer quelle fraction de l'énergie totale fournie au système sous forme de déformation élastique est convertie en énergie potentielle gravitationnelle servant au saut. \\
+Pour cela on s'intéresse au ratio $\frac{E_{p,g}}{E_{tot}}$ des deux quantités décrites précedemment. \\
+Avec $E_{tot}=\frac{F^2}{2k}$ et $E_{p,g}=m_r g H_max$, on obtient:  $\frac{E_{p,g}}{E_{tot}}=1-\frac{(m_r g)^2)}{4F^2}$.
+
+\subsection{Traitement numérique du modèle}
+Dans la partie qui suit, on étudie pour chaque paramètre dont dépendent $H_max$ et le ratio d'efficacité énergétique comment ces derniers évoluent lorsqu'on fait varier un de ces paramètre indépendamment des autres.
+\\ 
+\\ 
+La variation de ces paramètres doit respecter les valeurs limites suivantes, en dessous desquelles le modèle n'est plus valide:
+\begin{itemize}
+    \item 
+\end{itemize}
