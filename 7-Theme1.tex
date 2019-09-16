@@ -47,7 +47,7 @@ On modélise la roue Cyr par deux masses ponctuelles égales $\frac{m_r}{2}$ rel
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=4in]{images_2ddl/repos.png}
+\includegraphics[width=2in]{images_2ddl/repos.png}
 \caption{Système au repos}
 \label{fig:repos}
 \end{figure}
@@ -58,7 +58,7 @@ On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa 
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=4in]{images_2ddl/saut.png}
+\includegraphics[width=3in]{images_2ddl/saut.png}
 \caption{Saut du système}
 \label{fig:saut}
 \end{figure}
@@ -173,64 +173,161 @@ Les limites seront indiquées par des pointillés sur les tracés plus bas
 \\
 On applique le modèle développé dans la section précédente aux quatre cas suivants:
 \begin{itemize}
-	\item Une roue en acier dont les dimensions ont été mesurées sur une roue existante (cas témoin)
+	\item Une roue en acier dont les dimensions, détaillées en Figure~\ref{fig:geo1} ,  ont été mesurées sur une roue existante (cas témoin)
 	\item Une roue en matériau composite de dimensions identiques à celles de la première
-	\item Une roue en matériau composite de section elliptique dont le prolongement du petit axe coincide avec l'axe de révolution (cas 1)
-	\item Une roue en matériau composite de section elliptique dont le prolongement du grand axe coincide avec l'axe de révolution (cas 2)
+	\item Une roue en matériau composite de section elliptique dont le prolongement du petit axe coincide avec l'axe de révolution (cas 1), dont les dimensions sont détaillés Figure~\ref{fig:geo2}
+	\item Une roue en matériau composite de section elliptique dont le prolongement du grand axe coincide avec l'axe de révolution (cas 2), dont les dimensions sont détaillés Figure~\ref{fig:geo2}
 \end{itemize}
 \\
 \\
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/geo1.png}
+\caption{Géométrie et dimension des roues Cyr à sections circulaires étudiées dans cette partie}
+\label{fig:geo1}
+\end{figure}
 
-figures: ellipse cas 1 et 2 + geo section circulaire
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/geo2.png}
+\caption{Géométrie et dimension des roues Cyr à sections elliptiques étudiées dans cette partie}
+\label{fig:geo2}
+\end{figure}
 
 
 Si on fait varier un paramètre indépendamment des autres, il est nécessaire d'affecter une valeur à ces derniers, fixés momentanément:
 \begin{itemize}
-	\item Les géométries considérées sont celles présentées en figure_
+	\item Les géométries considérées sont celles présentées en  Figures \ref{fig:geo1} et \ref{fig:geo2}
 	\item On considère que la force $F$ appliquée au système a pour norme $900 N$, correspondant au poids d'un athlète se suspendant à une main à la roue.
 	\item Les propriétés mécaniques de l'acier sont les suivantes $E_a=210GPa$, $rho_a=7800 kg m^-3$
 	\item Pour le matériau composite, on considère dans un premier temps qu'il s'agit d'une matrice nylon renforcée de fibres de carbones courtes, qu'on considère isotrope. On a donc: $E_c=9 GPa$, $G=3.8 GPa$, $rho_c=1170 kg m^-3$, avec une contrainte à la rupture $\sigma_r=63 MPa$
-
+\end{itemize}
 Dans ce qui suit, lorsqu'on fait varier une seul paramètre, les autres, momentanément fixés, prennent les valeurs qui leur ont été attribuées ci-dessus.
 \\
 \\ 
-Avec ces données il est possible de déterminer la masse minimale que devra avoir la roue (on considère le cas d'une section circulaire):
+Premièrement, avec ces données il est possible de déterminer la masse minimale que devra avoir la roue (on considère le cas d'une section circulaire):
 \begin{itemize}
-\item On commence par calculer les contraintes lorsque la roue est comprimée par une force $F$: La contrainte dans l'arrête extérieure s'exprime $\sigma_i=k_i\sigma$ \cite{roark},
-où sigma est la contrainte calculée pour une poutre droite: $\sigma=\frac{Mr_2}{I_z}$, avec $I_z=\frac{\pi}{2}(r_2^4-r_1^4)$ et $M=\frac{\pi}{4}FR$.
-D'après les formules du livre de Roark, $k_i$ s'exprime $k_i=\frac{1}{4\beta}\frac{1-\beta}{\frac{R_c}{r_2}-1}[1+(\frac{r_1}{r_2})^2]$ avec $\beta=\frac{1}{2}[\frac{2R_c}{r_2}-\sqrt{(\frac{R_c}{r_2})^2-1}-\sqrt{(\frac{R_c}{r_2})^2-(\frac{r_1}{r_2})^2}]$ \\
-Il ne reste plus qu'à déterminer le rayon de courbe de la roue comprimée, comme illustré sur la figure ci-dessous: $R_c=\frac{a_r^2}{b_r}$, $a_r$ et $b_r$ étant respectivement les demi grand axe et demi petit axe de l'ellipse que devient la roue lorsqu'elle est comprimée.\\
-Pour calculer $a_r$ et $b_r$, on utilise les formules du livre de Roark qui donnent les variations de diamètre horizontal $\DeltaD_h$ et vertical $\DeltaD_v$ d'une anneau comprimé selon son diamètre avec une force $F$, et on aura ainsi $a_r=R+\frac{\DeltaD_h}{2}$ et $b_r=R+\frac{\DeltaD_v}{2}$.\\
-D'après les formules de Roark, $\DeltaD_h=\frac{FR^3}{EI}(\frac{1}{2}(1+\frac{I}{AR^2}+\frac{2EI}{GAR^2})-1+\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$ et $\DeltaD_v=-\frac{FR^3}{EI}(\frac{\pi}{4}(1-\frac{I}{AR^2}+\frac{2EI}{GAR^2})-\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$, où $A$ est l'aire de section, $E$, le module de Young, $G$, le module de cisaillement, $R$, le rayon médian de la roue, et $I$ le moment de section quadratique selon l'axe principal perpendiculaire au plan de la roue.
-\item En implémentant numériquement les équations ci-dessus, on est capable de calculer les contraintes maximales auxquelles sera soumise la roue pour une force de compression $F$ donnée. Pour $F=900N$, en fixant $r_2$ et en faisant varier $r_1$ de $0$ à $r_2$, on est capable de tracer les contraintes maximales, en fonction de la masse de la roue, $m_r=2\pi\rho A R$. Comme l'illustre la figure ci-dessous, il est alors possible de déterminer la masse à partir de laquelle les contraintes passent sous le seuil de $63 MPa$, et donc à partir de laquelle il y a rupture.
+    \item On commence par calculer les contraintes lorsque la roue est comprimée par une force $F$: La contrainte dans l'arrête extérieure s'exprime $\sigma_i=k_i\sigma$ \cite{roark},
+    où sigma est la contrainte calculée pour une poutre droite: $\sigma=\frac{Mr_2}{I_z}$, avec $I_z=\frac{\pi}{2}(r_2^4-r_1^4)$ et $M=\frac{\pi}{4}FR$.
+    D'après les formules du livre de Roark, $k_i$ s'exprime $k_i=\frac{1}{4\beta}\frac{1-\beta}{\frac{R_c}{r_2}-1}[1+(\frac{r_1}{r_2})^2]$ avec $\beta=\frac{1}{2}[\frac{2R_c}{r_2}-\sqrt{(\frac{R_c}{r_2})^2-1}-\sqrt{(\frac{R_c}{r_2})^2-(\frac{r_1}{r_2})^2}]$ 
+    \item Il ne reste plus qu'à déterminer le rayon de courbure de la roue comprimée, comme illustré sur la figure \ref{fig:ellr}: $R_c=\frac{a_r^2}{b_r}$, $a_r$ et $b_r$ étant respectivement les demi grand axe et demi petit axe de l'ellipse que devient la roue lorsqu'elle est comprimée.\\
+    
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[width=4in]{images_2ddl/ellr.png}
+    \caption{}
+    \label{fig:ellr}
+    \end{figure}
+    
+    Pour calculer $a_r$ et $b_r$, on utilise les formules du livre de Roark qui donnent les variations de diamètre horizontal $\DeltaD_h$ et vertical $\DeltaD_v$ d'une anneau comprimé selon son diamètre avec une force $F$, et on aura ainsi $a_r=R+\frac{\DeltaD_h}{2}$ et $b_r=R+\frac{\DeltaD_v}{2}$.\\
+    D'après les formules de Roark, $\DeltaD_h=\frac{FR^3}{EI}(\frac{1}{2}(1+\frac{I}{AR^2}+\frac{2EI}{GAR^2})-1+\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$ et $\DeltaD_v=-\frac{FR^3}{EI}(\frac{\pi}{4}(1-\frac{I}{AR^2}+\frac{2EI}{GAR^2})-\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$, où $A$ est l'aire de section, $E$, le module de Young, $G$, le module de cisaillement, $R$, le rayon médian de la roue, et $I$ le moment de section quadratique selon l'axe principal perpendiculaire au plan de la roue.
+    \item En implémentant numériquement les équations ci-dessus, on est capable de calculer les contraintes maximales auxquelles sera soumise la roue pour une force de compression $F$ donnée. Pour $F=900N$, en fixant $r_2$ et en faisant varier $r_1$ de $0$ à $r_2$, on est capable de tracer les contraintes maximales, en fonction de la masse de la roue, $m_r=2\pi\rho A R$. Comme l'illustre la figure-\ref{fig:mmin1} ci-dessous, il est alors possible de déterminer la masse à partir de laquelle les contraintes passent sous le seuil de $63 MPa$, et donc à partir de laquelle il y a rupture.
 
-figure: stress/masse: Contraintes maximales dans la roue en fonction de sa masse, pour $r_2=2.5 cm$ et $r_1$ variant de $0.0$ à $2.49 cm$ (gauche) et $r_2=5.0 cm$ et $r_1$ variant de $0.0$ à $4.99 cm$
+\begin{figure}[htb]
+\centering
+\includegraphics[width=7in]{images_2ddl/mmin1.png}
+\caption{Contraintes maximales dans la roue en fonction de sa masse, pour $r_2=2.5 cm$ et $r_1$ variant de $0.0$ à $2.49 cm$ (gauche) et $r_2=5.0 cm$ et $r_1$ variant de $0.0$ à $4.99 cm$}
+\label{fig:mmin1}
+\end{figure}
 
 
-\item On peut donc implémenter ce procédé numériquement pour déterminer cette valeur minimale de la masse pour en fonction de $r_2$. Le resultat de l'implémentation est présenté à la figure ci-dessous. 
 
-figure: Masse minimale de la roue en fonction de $r_2$
+\item On peut donc implémenter ce procédé numériquement pour déterminer cette valeur minimale de la masse pour en fonction de $r_2$. Le resultat de l'implémentation est présenté à la figure-\ref{fig:mmin2} ci-dessous. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/mmin2.png}
+\caption{Masse minimale de la roue en fonction de $r_2$}
+\label{fig:mmin2}
+\end{figure}
 
 
 \item Pour ce qui suit, $r_2$ sera fixé à $1.75 cm$, la masse minimale sera donc $2.0 kg$
 
-\\
-\\
-Variations de $H_{max}$ et de $\frac{E_{p,g}}{E{tot}}$
+\end{itemize}
+\newline
+\newline
+Variations de $H_{max}$ et de $\frac{E_{p,g}}{E{tot}}$:
 
-Figures
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/hmaxf.png}
+\caption{}
+\label{fig:hmaxf}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/hmaxfa.png}
+\caption{}
+\label{fig:hmaxfa}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/epf.png}
+\caption{}
+\label{fig:epf}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/epfa.png}
+\caption{}
+\label{fig:epfa}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/hmaxm.png}
+\caption{}
+\label{fig:hmaxm}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/epm.png}
+\caption{}
+\label{fig:epm}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{images_2ddl/hmaxk.png}
+\caption{}
+\label{fig:hmaxk}
+\end{figure}
+
+\\
+\\
 
 Remarques:
 \begin{itemize}
 \item Les tracés adimensionnels permettent d'étudier une tendance globale, ainsi que de s'affranchir de la dépendance des résultats avec les autres paramètres.
-\item Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
-\item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas)
-\item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure_, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, sur la figure_ (Hmaxf) l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée, surtout pour la roue composite à section circulaire.
+\item Figure \ref{fig:epfa}: Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
+\item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas, comme on peut l'observer dans la figure \ref{fig:epf} )
+\item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure \ref{fig:epm}, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, sur la figure \ref{hmaxf} l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée.
 \item A l'inverse, la courbe $H_{max}=f(k)$ s'aplatit rapidement à mesure que la raideur augmente. Il s'agit de trouver un compromis entre la solidité et la maximisation de la hauteur de saut.
+\end{itemize}
 
 
+\section{Stabilité dynamique du mouvement}
+\subsection{Description du mouvement}
+On étudie ici le second mouvement caractéristique de la roue Cyr, analogue au mouvement du disque d'Euler. Le mouvement se découpe en deux phases, une première phase au cours de laquelle la roue décrit des cercles en roulant sur sa tranche, puis une deuxième phase où elle oscille en tournant de plus en plus vite avant de tomber à plat, stoppant net le mouvement. Ces deux phases correspondent à l'énchainement de deux figures de roue Cyr, la "roue" pour la phase 1 et la pièce pour la phase 2. \\
+Ce qui suit est basé sur l'article de Batista \cite{Batista}, dont la démarche et le modèle mathématique développés pour le disque d'Euler ont été adaptés à la géométrie torique de la roue Cyr. De même que Batista, l'objectif est de développer des cartes de stabilité dynamiques, avec d'autres variables adaptées à notre cas.
+
+\subsection{Hypothèses}
+\begin{itemize}
+    \item On se place en régime stationnaire: il n'y a pas de dissipation d'énergie mécanique. 
+    \item On considère que la roue évolue sur un sol rugueux: il n'y a pas de glissement au niveau du point de contact.
+\end{itemize}
+
+\subsection{Mise en équations}
 
 
+\subsection{Cartes de stabilité}
+
+\subsection{Interprétation physique}
 
 
 
