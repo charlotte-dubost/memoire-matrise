@@ -323,7 +323,44 @@ Ce qui suit est basé sur l'article de Batista \cite{Batista}, dont la démarche
 \end{itemize}
 
 \subsection{Mise en équations}
+\subsubsection{Variables et systèmes de coordonnées}
 
+\begin{table}[htbp]
+  \centering
+  \caption{Constantes et variables des modèle analytiques}
+  \begin{tabular}{|c|l|}
+    \hline\rowcolor[gray]{0.8}\color{black}
+    Symbole         & Description\\\hline
+    $C$             & Centre de gravité de la roue\\\hline
+    $P$             & Point de contact entre la roue et le sol\\\hline
+    $A$             & Point autour duquel la roue roule en dessinant des cercles\\\hline
+    $r_c$             & Rayon des cercles dessinés par la roue, obtenus par projection du centre de masse au sol\\\hline
+    $(X_C,Y_C,Z_C)$           & Position du centre de gravité dans le reférentiel OXYZ\\\hline
+    $(\psi,\theta,\phi)$       & Position angulaire de la roue dans OXYZ\\\hline
+    $(v_{Cx},v_{Cy},v_{Cz})$           & Composantes de la vitesse du point C dans C{xyz} \\\hline
+    $(\omega_1,\omega_2,\omega_3)$          & EComposantes de la vitesse angulaire dans C{\xi\eta\zeta}\\\hline
+    $\Omega$          & Vitesse angulaire par rapport à l'axe Z\\\hline
+  \end{tabular}
+  \label{tab:batista}
+\end{table}
+
+On reprend les trois référentiels utilisés par Batista: $OXYZ$, $C{xyz}$ et $C{\xi\eta\zeta}$:
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{batista/ref1.png}
+\caption{Système de coordonnés, tiré de l'article de Batista \cite{Batista}}
+\label{fig:ref1}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=4in]{batista/ref2.png}
+\caption{Système de coordonnés, adapté de l'article de Batista \cite{Batista}}
+\label{fig:ref2}
+\end{figure}
+
+\subsubsection{Equations}
 
 \subsection{Cartes de stabilité}
 
