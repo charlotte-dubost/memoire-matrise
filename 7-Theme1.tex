@@ -178,8 +178,7 @@ On applique le modèle développé dans la section précédente aux quatre cas s
 	\item Une roue en matériau composite de section elliptique dont le prolongement du petit axe coincide avec l'axe de révolution (cas 1), dont les dimensions sont détaillés Figure~\ref{fig:geo2}
 	\item Une roue en matériau composite de section elliptique dont le prolongement du grand axe coincide avec l'axe de révolution (cas 2), dont les dimensions sont détaillés Figure~\ref{fig:geo2}
 \end{itemize}
-\\
-\\
+
 \begin{figure}[htb]
 \centering
 \includegraphics[width=4in]{images_2ddl/geo1.png}
@@ -219,9 +218,13 @@ Premièrement, avec ces données il est possible de déterminer la masse minimal
     \label{fig:ellr}
     \end{figure}
     
-    Pour calculer $a_r$ et $b_r$, on utilise les formules du livre de Roark qui donnent les variations de diamètre horizontal $\DeltaD_h$ et vertical $\DeltaD_v$ d'une anneau comprimé selon son diamètre avec une force $F$, et on aura ainsi $a_r=R+\frac{\DeltaD_h}{2}$ et $b_r=R+\frac{\DeltaD_v}{2}$.\\
-    D'après les formules de Roark, $\DeltaD_h=\frac{FR^3}{EI}(\frac{1}{2}(1+\frac{I}{AR^2}+\frac{2EI}{GAR^2})-1+\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$ et $\DeltaD_v=-\frac{FR^3}{EI}(\frac{\pi}{4}(1-\frac{I}{AR^2}+\frac{2EI}{GAR^2})-\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$, où $A$ est l'aire de section, $E$, le module de Young, $G$, le module de cisaillement, $R$, le rayon médian de la roue, et $I$ le moment de section quadratique selon l'axe principal perpendiculaire au plan de la roue.
+\begin{itemize}
+    \item Pour calculer $a_r$ et $b_r$, on utilise les formules du livre de Roark qui donnent les variations de diamètre horizontal $\Delta D_h$ et vertical $\Delta D_v$ d'une anneau comprimé selon son diamètre avec une force $F$, et on aura ainsi $a_r=R+\frac{\Delta D_h}{2}$ et $b_r=R+\frac{\Delta D_v}{2}$.
+    \item D'après les formules de Roark, $\Delta D_h=\frac{FR^3}{EI}(\frac{1}{2}(1+\frac{I}{AR^2}+\frac{2EI}{GAR^2})-1+\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$ et $\Delta D_v=-\frac{FR^3}{EI}(\frac{\pi}{4}(1-\frac{I}{AR^2}+\frac{2EI}{GAR^2})-\frac{2}{/pi}(1-\frac{I}{AR^2})^2)$, où $A$ est l'aire de section, $E$, le module de Young, $G$, le module de cisaillement, $R$, le rayon médian de la roue, et $I$ le moment de section quadratique selon l'axe principal perpendiculaire au plan de la roue.
     \item En implémentant numériquement les équations ci-dessus, on est capable de calculer les contraintes maximales auxquelles sera soumise la roue pour une force de compression $F$ donnée. Pour $F=900N$, en fixant $r_2$ et en faisant varier $r_1$ de $0$ à $r_2$, on est capable de tracer les contraintes maximales, en fonction de la masse de la roue, $m_r=2\pi\rho A R$. Comme l'illustre la figure-\ref{fig:mmin1} ci-dessous, il est alors possible de déterminer la masse à partir de laquelle les contraintes passent sous le seuil de $63 MPa$, et donc à partir de laquelle il y a rupture.
+    
+\end{itemize}
+
 
 \begin{figure}[htb]
 \centering
@@ -231,8 +234,10 @@ Premièrement, avec ces données il est possible de déterminer la masse minimal
 \end{figure}
 
 
+\begin{itemize}
+    \item On peut donc implémenter ce procédé numériquement pour déterminer cette valeur minimale de la masse pour en fonction de $r_2$. Le resultat de l'implémentation est présenté à la figure-\ref{fig:mmin2} ci-dessous. 
+\end{itemize}
 
-\item On peut donc implémenter ce procédé numériquement pour déterminer cette valeur minimale de la masse pour en fonction de $r_2$. Le resultat de l'implémentation est présenté à la figure-\ref{fig:mmin2} ci-dessous. 
 
 \begin{figure}[htb]
 \centering
@@ -245,69 +250,35 @@ Premièrement, avec ces données il est possible de déterminer la masse minimal
 \item Pour ce qui suit, $r_2$ sera fixé à $1.75 cm$, la masse minimale sera donc $2.0 kg$
 
 \end{itemize}
-\newline
-\newline
-Variations de $H_{max}$ et de $\frac{E_{p,g}}{E{tot}}$:
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/hmaxf.png}
-\caption{}
-\label{fig:hmaxf}
+\begin{figure}
+
+  \begin{subfigure}
+  \includegraphics[width=3in]{images_2ddl/hmaxf.png}
+  \includegraphics[width=3in]{images_2ddl/hmaxfa.png}
+  \end{subfigure}
+  \begin{subfigure}
+  \includegraphics[width=3in]{images_2ddl/epf.png}
+  \includegraphics[width=3in]{images_2ddl/epfa.png}
+  \end{subfigure}
+  \begin{subfigure}
+  \includegraphics[width=3in]{images_2ddl/hmaxm.png}
+  \includegraphics[width=3in]{images_2ddl/epm.png}
+  \includegraphics[width=3in]{images_2ddl/hmaxk.png}
+  \end{subfigure}
+  
+  \caption{Variations de $H_{max}$ et de $\frac{E_{p,g}}{E{tot}}$}
 \end{figure}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/hmaxfa.png}
-\caption{}
-\label{fig:hmaxfa}
-\end{figure}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/epf.png}
-\caption{}
-\label{fig:epf}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/epfa.png}
-\caption{}
-\label{fig:epfa}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/hmaxm.png}
-\caption{}
-\label{fig:hmaxm}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/epm.png}
-\caption{}
-\label{fig:epm}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=4in]{images_2ddl/hmaxk.png}
-\caption{}
-\label{fig:hmaxk}
-\end{figure}
-
-\\
-\\
 
 Remarques:
 \begin{itemize}
-\item Les tracés adimensionnels permettent d'étudier une tendance globale, ainsi que de s'affranchir de la dépendance des résultats avec les autres paramètres.
-\item Figure \ref{fig:epfa}: Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
-\item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas, comme on peut l'observer dans la figure \ref{fig:epf} )
-\item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure \ref{fig:epm}, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, sur la figure \ref{hmaxf} l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée.
-\item A l'inverse, la courbe $H_{max}=f(k)$ s'aplatit rapidement à mesure que la raideur augmente. Il s'agit de trouver un compromis entre la solidité et la maximisation de la hauteur de saut.
+    \item Les tracés adimensionnels permettent d'étudier une tendance globale, ainsi que de s'affranchir de la dépendance des résultats avec les autres paramètres.
+    \item Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
+    \item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas )
+    \item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure \ref{fig:epm}, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée.
+    \item A l'inverse, la courbe $H_{max}=f(k)$ s'aplatit rapidement à mesure que la raideur augmente. Il s'agit de trouver un compromis entre la solidité et la maximisation de la hauteur de saut.
 \end{itemize}
 
 
@@ -318,8 +289,9 @@ Ce qui suit est basé sur l'article de Batista \cite{Batista}, dont la démarche
 
 \subsection{Hypothèses}
 \begin{itemize}
-    \item On se place en régime stationnaire: il n'y a pas de dissipation d'énergie mécanique. 
+    \item On se place en régime stationnaire: les variables qui prennent ainsi des valeurs constantes seront indicées d'un 0.
     \item On considère que la roue évolue sur un sol rugueux: il n'y a pas de glissement au niveau du point de contact.
+    \item Le mouvement est étudié pour des valeurs de $\theta_0$ strictement comprises entre 0 et $\pi/2$ radians.
 \end{itemize}
 
 \subsection{Mise en équations}
@@ -334,17 +306,22 @@ Ce qui suit est basé sur l'article de Batista \cite{Batista}, dont la démarche
     $C$             & Centre de gravité de la roue\\\hline
     $P$             & Point de contact entre la roue et le sol\\\hline
     $A$             & Point autour duquel la roue roule en dessinant des cercles\\\hline
+    $a$             & Rayon externe de la roue\\\hline
+    $R$             & Rayon médian de la roue\\\hline
     $r_c$             & Rayon des cercles dessinés par la roue, obtenus par projection du centre de masse au sol\\\hline
     $(X_C,Y_C,Z_C)$           & Position du centre de gravité dans le reférentiel OXYZ\\\hline
     $(\psi,\theta,\phi)$       & Position angulaire de la roue dans OXYZ\\\hline
-    $(v_{Cx},v_{Cy},v_{Cz})$           & Composantes de la vitesse du point C dans C{xyz} \\\hline
-    $(\omega_1,\omega_2,\omega_3)$          & EComposantes de la vitesse angulaire dans C{\xi\eta\zeta}\\\hline
+    $(v_{Cx},v_{Cy},v_{Cz})$           & Composantes de la vitesse du point C dans C{xzy} \\\hline
+    $(\omega_1,\omega_2,\omega_3)$          & Composantes de la vitesse angulaire $\vec{omega}$ dans $C{\xi \eta \zeta}$\\\hline
+    $\Omega$          & Vitesse angulaire par rapport à l'axe Z\\\hline
+    $(F_x,F_y,F_z)$          & Composante de la force de réaction au point $P$ dans $C_{xzy}$ \\\hline
+    $(M_x,M_y,M_z)$          & Composante du moment de réaction au point $P$ dans $C_{xzy}$ \\\hline
     $\Omega$          & Vitesse angulaire par rapport à l'axe Z\\\hline
   \end{tabular}
   \label{tab:batista}
 \end{table}
 
-On reprend les trois référentiels utilisés par Batista: $OXYZ$, $C{xyz}$ et $C{\xi\eta\zeta}$:
+On reprend les trois référentiels utilisés par Batista: $OXYZ$, $C{xzy}$ et $C{\xi\eta\zeta}$:
 
 \begin{figure}[htb]
 \centering
@@ -361,6 +338,151 @@ On reprend les trois référentiels utilisés par Batista: $OXYZ$, $C{xyz}$ et $
 \end{figure}
 
 \subsubsection{Equations}
+Le mouvement de la roue est régie par les équations cinématiques suivantes \cite{Batista}:
+\begin{equation}
+  \begin{cases}
+    \frac{dX_C}{dt}=v_{Cx0} \cos{\psi}- v_{Cy0} \sin{\psi}\\
+    \frac{dY_C}{dt}=v_{Cx0} \sin{\psi}- v_{Cy0} \cos{\psi}\\
+    \frac{dZ_C}{dt}=v_{Cz0} \\
+    \frac{d\psi}{dt}=\Omega_0=\frac{\omega_{30}}{\cos{\theta_0}}\\
+    \frac{d\theta}{dt}=\omega_{10}=0\\
+    \frac{d\phi}{dt}=\omega_{20}-\omega_{30} \tan{\theta_0}
+  \end{cases}
+  \label{eq:b1}
+\end{equation}
+
+
+Les coordonnées du point de contact P dans C{xzy}, schématisé dans la figure \ref{fig:geo2} s'expriment:
+\begin{equation}
+  \begin{cases}
+    x_P=0\\
+    y_P=(a-r_2)\sin{\theta_0}=R\sin{\theta_0}\\
+    z_P=-(a-r_2)\cos{\theta_0}-r_2=-R\cos{\theta_0}-r_2\\
+  \end{cases}
+  \label{eq:b2}
+\end{equation}
+
+D'après la règle de transport des torseurs, la vitesse du point de contact dans $C_{xzy}$ s'écrit:
+\begin{equation}
+    \vec{v_{P0}}=\vec{v_{C0}}+\vec{\omega_0} \wedge \vec{CP}
+  \label{eq:b3}
+\end{equation}
+
+Les composantes de la vitesse au point de contact dans $C_{xzy}$ s'écrivent donc:
+\begin{equation}
+  \begin{cases}
+    v_{Px_0}=v_{Cx_0}-\omega_{20} (R\cos{\theta_0}+r_2) -\omega_{30} R\sin{\theta} \\
+    v_{Py_0}=v_{Cy_0} + \omega_{10} (R\cos{\theta_0}+r_2)= v_{Cy_0}\\
+    v_{Pz_0}=v_{Cz_0} + \omega_{10} R\sin{\theta_0} = v_{Cz_0}
+  \end{cases}
+  \label{eq:b4}
+\end{equation}
+
+On a fait l'hypothèse d'un sol rugueux: on a donc $v_{Px0}=v_{Py0}=0$, et comme le contact entre le sol et la roue est permanent, $v_{Pz0}=0=v_{Cz_0}$.
+
+
+Les composantes de l'accélération du centre d'inertie de la roue dans $C{xzy}$ s'expriment à partir de l'équation \ref{eq:b1} projetée dans $C{xzy}$:
+
+\begin{equation}
+  \begin{cases}
+    a_{Cx0}=\frac{dv_{Cx0}}{dt}-\Omega_0 v_{Cy0}=-\Omega_0 v_{Cy0} \\
+    a_{Cy0}=\frac{dv_{Cy0}}{dt} + \Omega_0 v_{Cx0}=\Omega_0 v_{Cx0}\\
+    a_{Cz0}=\frac{dv_{Cz0}}{dt} = 0
+  \end{cases}
+  \label{eq:b5}
+\end{equation}
+
+Le moment cinétique au centre de masse s'exprime $\vec{L_C0}=I \cdot \vec{\omega}$, avec pour tenseur d'inertie:
+$$
+I=
+\begin{pmatrix}
+   m_r (\frac{1}{2}R^2+\frac{5}{8}R_2^2) & 0  &  0 \\
+  0 &  m_r(R^2+\frac{3}{4}r_2^2) & 0 \\
+  0 & 0 & m_r (\frac{1}{2}R^2+\frac{5}{8}R_2^2)
+\end{pmatrix}
+$$
+
+Notons $k_1^2=\frac{1}{2}R^2+\frac{5}{8}R_2^2$ et $k_2^2=R^2+\frac{3}{4}r_2^2$
+
+Les composantes du moment cinétique dans $C_{\xi \eta \zeta}$ s'écrivent donc:
+\begin{equation}
+  \begin{cases}
+    L_{C\xi 0}=m_r k_1^2 \omega_{10}=0 \\
+    L_{C\eta 0}=m_r k_2^2 \omega_{20}\\
+    L_{C\zeta 0}=m_r k_1^2 \omega_{30}
+  \end{cases}
+  \label{eq:b6}
+\end{equation}
+
+
+Les relations fondamentales de la dynamique en translation et en rotation donnent alors:
+\begin{equation}
+  \begin{cases}
+    m_r\Omega_0 v_{Cy0}=-F_x \\
+    m_r \Omega_0 v_{Cx0}=F_y\\
+    m_r(\frac{dv_{Cz0}}{dt})=-mg+F_z=0
+  \end{cases}
+  \label{eq:b7}
+\end{equation}
+
+
+\begin{equation}
+  \begin{cases}
+    m_r(k_2^2\omega_{20}-k_1^2\omega_{30} \tan{\theta_0})\omega_{30} +(R\cos{\theta_0}+r_2)F_y + R\sin{\theta_0}F_z + M_x =0\\
+    -aF_x + M_y \cos{\theta_0} +M_z \sin{\theta_0}=0\\
+    m_r(-k_2^2\omega_{20}+k_1^2\omega_{30} \tan{\theta_0})\omega_{10} + hF_x - M_y \sin{\theta_0} +M_z \cos{\theta_0}=0
+  \end{cases}
+  \label{eq:b8}
+\end{equation}
+
+La dérivée de l'énergie mécanique s'exprime: 
+$$
+\frac{dE}{dt}=P_F + P_M
+\frac{dE}{dt}=\vec{v_P} \cdot \vec{F} + \vec{\omega} \cdot \vec{M}
+$$
+
+On étudie ici le régime stationnaire: les puissances de la force et du moment de réaction doivent être nulles. \\
+Comme on a fait l'hypothèse du sol rugueux, on a déjà $\vec{v_P}=\vec{0}$. \\
+Le disque doit avoir une vitesse de rotation pour qu'il y ait un mouvement à étudier, on a donc $\vec{M}=\vec{0}$
+
+Les systèmes d'équations \ref{eq:b7} et \ref{eq:b8} deviennent alors:
+
+\begin{equation}
+  \begin{cases}
+    F_y=m_r \Omega_0 v_{Cx0} \\
+    m_r(k_2^2\omega_{20}-k_1^2\omega_{30} \tan{\theta_0})\omega_{30} +(R\cos{\theta_0}+r_2)m_r \Omega_0 v_{Cx0} + R\sin{\theta_0}mg =0
+  \end{cases}
+  \label{eq:b9}
+\end{equation}
+
+Or, on sait de l'équation \ref{eq:b1} que:
+
+\begin{equation}
+  \begin{cases}
+    \omega_{20}=\omega_0 + \Omega_0 \sin{\theta_0}
+    \omega_{30}=\Omega_0 \cos{\theta_0}
+  \end{cases}
+  \label{eq:b10}
+\end{equation}
+
+Et de l'équation \ref{eq:b2} que:\\
+$v_{Cx0}=(R+r_2)\omega{20}-h\omega{30}$, c'est à dire $v_{Cx0}=(R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-h\Omega_0 \cos{\theta_0}$
+
+Ce qui donne:
+
+\begin{equation}
+ \begin{split}
+     m_r(k_2^2(\omega_0 + \Omega_0 \sin{\theta_0})-k_1^2(\Omega_0 \cos{\theta_0}) \tan{\theta_0})(\Omega_0 \cos{\theta_0})\\
+    +(R\cos{\theta_0}+r_2)m_r \Omega_0 ((R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-h\Omega_0 \cos{\theta_0}) + R\sin{\theta_0}m_r g =0
+ \end{split}
+  \label{eq:b11}
+\end{equation}
+
+L'équation \ref{eq:b11} se traduit ainsi: pour que le régime stationnaire puisse exister, l'équation polynomiale en $\Omega_0$ doit avoir une solution. L'existence de cette solution dépend des valeurs de $(\theta_0,\omega_0)$. On peut ainsi tracer une première partie de la carte de stabilité, en séparant graphiquement les cas où le régime stationnaire est possible, et les cas où il ne peut pas exister.
+
+
+
+
 
 \subsection{Cartes de stabilité}
 
