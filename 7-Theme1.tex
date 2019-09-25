@@ -466,21 +466,34 @@ Or, on sait de l'équation \ref{eq:b1} que:
 \end{equation}
 
 Et de l'équation \ref{eq:b2} que:\\
-$v_{Cx0}=(R+r_2)\omega{20}-h\omega{30}$, c'est à dire $v_{Cx0}=(R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-h\Omega_0 \cos{\theta_0}$
+$v_{Cx0}=(R+r_2)\omega{20}-r_2\omega{30}$, c'est à dire $v_{Cx0}=(R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-r_2\Omega_0 \cos{\theta_0}$
 
 Ce qui donne:
 
 \begin{equation}
  \begin{split}
      m_r(k_2^2(\omega_0 + \Omega_0 \sin{\theta_0})-k_1^2(\Omega_0 \cos{\theta_0}) \tan{\theta_0})(\Omega_0 \cos{\theta_0})\\
-    +(R\cos{\theta_0}+r_2)m_r \Omega_0 ((R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-h\Omega_0 \cos{\theta_0}) + R\sin{\theta_0}m_r g =0
+    +(R\cos{\theta_0}+r_2)m_r \Omega_0 ((R+r_2)(\omega_0 + \Omega_0 \sin{\theta_0})-r_2\Omega_0 \cos{\theta_0}) + R\sin{\theta_0}m_r g =0
  \end{split}
   \label{eq:b11}
 \end{equation}
 
+soit
+
+\begin{equation}
+ \begin{split}
+     [(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]\Omega_0^2 \\
+     +\omega_0[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))] \Omega_0 + Rg \sin(theta_0)
+ \end{split}
+  \label{eq:b12}
+\end{equation}
+
 L'équation \ref{eq:b11} se traduit ainsi: pour que le régime stationnaire puisse exister, l'équation polynomiale en $\Omega_0$ doit avoir une solution. L'existence de cette solution dépend des valeurs de $(\theta_0,\omega_0)$. On peut ainsi tracer une première partie de la carte de stabilité, en séparant graphiquement les cas où le régime stationnaire est possible, et les cas où il ne peut pas exister.
 
-
+\begin{equation}
+ \Omega_0=\frac{-k_2^2 \cos(\theta_0)-(R+r_2)(R \cos(\theta_0)) }{}
+  \label{eq:b13}
+\end{equation}
 
 
 
