@@ -483,17 +483,135 @@ soit
 \begin{equation}
  \begin{split}
      [(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]\Omega_0^2 \\
-     +\omega_0[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))] \Omega_0 + Rg \sin(theta_0)
+     +\omega_0[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))] \Omega_0 + R g \sin(\theta_0) =0
  \end{split}
   \label{eq:b12}
 \end{equation}
 
-L'équation \ref{eq:b11} se traduit ainsi: pour que le régime stationnaire puisse exister, l'équation polynomiale en $\Omega_0$ doit avoir une solution. L'existence de cette solution dépend des valeurs de $(\theta_0,\omega_0)$. On peut ainsi tracer une première partie de la carte de stabilité, en séparant graphiquement les cas où le régime stationnaire est possible, et les cas où il ne peut pas exister.
+L'équation \ref{eq:b11} se traduit ainsi: pour que le régime stationnaire puisse exister, l'équation polynomiale en $\Omega_0$ doit avoir une solution réelle. L'existence de cette solution dépend des valeurs de $(\theta_0,\omega_0)$. On peut ainsi tracer une première partie de la carte de stabilité, en séparant graphiquement les cas où le régime stationnaire est possible, et les cas où il ne peut pas exister.
 
 \begin{equation}
- \Omega_0=\frac{-k_2^2 \cos(\theta_0)-(R+r_2)(R \cos(\theta_0)) }{}
+ \Omega_0=\frac{-\omega_0[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))] \pm \sqrt{\Delta} }{2[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]}
   \label{eq:b13}
 \end{equation}
+
+avec 
+
+\begin{equation}
+ \begin{split}
+ \Delta=\omega_0^2[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))]^2 \\
+ -4 R g \sin(\theta_0)[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]
+ \end{split}
+  \label{eq:b14}
+\end{equation}
+
+Pour que $\Omega_0$ soit réel, il faut $\Delta \geq 0$
+Lorsque $\Delta < 0$ l'équilibre n'existe pas
+
+La frontière de l'équilibre dynamique est décrite par l'équation:
+
+\begin{equation}
+ \begin{split}
+ \omega_0^2[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))]^2 \\
+ -4 R g \sin(\theta_0)[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]] = 0
+ \end{split}
+  \label{eq:b15}
+\end{equation}
+
+Ce qui équivaut à:
+
+\begin{equation}
+ \omega_0= \pm \frac{2\sqrt{R g \sin(\theta_0)[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]}}{k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))}
+  \label{eq:b16}
+\end{equation}
+
+Lorsque $$ |\omega_0| < \frac{2\sqrt{R g \sin(\theta_0)[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]}}{k_2^2 \cos(\theta_0)+(R+r_2)(R \cos{\theta_0})}
+$$
+ la force centrifuge et la réaction du sol ne peuvent plus contrebalancer l'effet de la gravité.
+ 
+ \\
+ \\
+On étudie à présent la réponse du système en régime permanent à une petite perturbation. On note $\Tilde{\theta}, \Tilde{\omega_1}, \Tilde{\omega_2}, \Tilde{\omega_3}$ les perturbations associées aux variables $\theta, \omega_1, \omega_2, \omega_3$. \\
+
+On a donc:
+
+\begin{equation}
+ \begin{cases}
+ \theta=\theta_0 + \Tilde{\theta} \\
+ \omega_1= \omega_{10} + \Tilde{\omega_1} = \frac{d\Tilde{\theta} }{dt} \\
+ \omega_2= \omega_{20} + \Tilde{\omega_2} \\
+ \omega_3= \omega_{30} + \Tilde{\omega_3}
+ \end{cases}
+  \label{eq:b17}
+\end{equation}
+
+D'après l'équation \ref{eq:b4}
+
+\begin{equation}
+  \begin{cases}
+    v_{Cx}=(\omega_{20}+ \Tilde{\omega_2} )(R\cos{(\theta_0 + \Tilde{\theta})}+r_2) -(\omega_{30}+ \Tilde{\omega_3})R\sin{(\theta_0+ \Tilde{\theta})} \\
+    v_{Cy} = \frac{d\Tilde{\theta} }{dt} (R\cos{(\theta_0+ \Tilde{\theta})}+r_2)\\
+    v_{Cz} = \frac{d\Tilde{\theta} }{dt} R\sin{(\theta_0+ \Tilde{\theta})} 
+  \end{cases}
+  \label{eq:b18}
+\end{equation}
+
+D'après les équations \ref{eq:b1}, \ref{eq:b5} et la relation fondamentale de la dynamique:
+
+\begin{equation}
+  \begin{cases}
+    \frac{dv_{Cx}}{dt}-\frac{\omega_{30}+ \Tilde{\omega_3}}{\cos{(\theta_0+\Tilde{\theta})}} v_{Cy}= \frac{F_x}{m_r}\\
+    \frac{dv_{Cy}}{dt} + \frac{\omega_{30}+ \Tilde{\omega_3}}{\cos{(\theta_0+\Tilde{\theta})}} v_{Cx}= \frac{F_y}{m_r}\\
+    \frac{dv_{Cz}}{dt} = - g +\frac{F_z}{m_r}
+  \end{cases}
+  \label{eq:b19}
+\end{equation}
+
+En réinjectant l'équation \ref{eq:b18} dans \ref{eq:b19}, on obtient:
+
+\begin{equation}
+  \begin{cases}
+
+   \frac{F_x}{m_r}=\frac{d\Tilde{\omega_2}}{dt}(R\cos{(\theta_0+\Tilde{\theta})}+r_2)-(\omega_{20}+\Tilde{\omega_2})R\frac{d\Tilde{\theta}}{dt}\sin{(\theta_0+\Tilde{\theta})}-\frac{d\Tilde{\omega_3}}{dt}R  \sin{(\theta_0+\Tilde{\theta})}\\
+   -(\omega_{30}+\Tilde{\omega_3})\frac{d\Tilde{\theta}}{dt}(R\cos{(\theta_0+\Tilde{\theta})}+R+\frac{r2}{\cos{(\theta_0+\Tilde{\theta})}})\\
+   \\
+   \frac{F_y}{m_r}=\frac{d^2\Tilde{\theta}}{dt^2}(R \cos{(\theta_0+\Tilde{\theta})}+r_2)-(\frac{d\Tilde{\theta}}{dt})^2 R\sin{(\theta_0+\Tilde{\theta})} \\
+   +(\omega_{20}+\Tilde{\omega_2})(\omega_{30}+\Tilde{\omega_{3}})(R+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}})-(\omega_{30}+\Tilde{\omega_3})^2 R \tan{(\theta_0+\Tilde{\theta})}\\
+   \\
+    \frac{F_z}{m_r}=g+\frac{d^2\Tilde{\theta}}{dt^2} R \sin{(\theta_0+\Tilde{\theta})} + (\frac{d\Tilde{\theta}}{dt})^2 R \cos{(\theta_0+\Tilde{\theta})}
+
+  \end{cases}
+  \label{eq:b20}
+\end{equation}
+
+De la même manière que pour l'équation \ref{eq:b8}, on utilise la relation fondamentale de la dynamique en rotation en utilisant les variables correspondant à l'ajout d'une perturbation de l'équation \ref{eq:b17}
+
+\begin{equation}
+  \begin{cases}
+    k_1^2\frac{d\Tilde{\omega_1}}{dt} =(k_2^2(\omega_{20}+\Tilde{\omega_{2}})-k_1^2(\omega_{30}+\Tilde{\omega_3}) \tan{(\theta_0+\Tilde{\theta})})(\omega_{30}+\Tilde{\omega_3}) +(R\cos{(\theta_0+\Tilde{\theta})}+r_2)\frac{F_y}{m_r}\\
+    + R\sin{(\theta_0+\Tilde{\theta})}\frac{F_z}{m_r} \\
+    k_2^2\frac{d\Tilde{\omega_2}}{dt} =-a \frac{F_x}{m_r} \\
+    k_1^2\frac{d\Tilde{\omega_3}}{dt} =(-k_2^2(\omega_{20}+\Tilde{\omega_2})+k_1^2(\omega_{30}+\Tilde{\omega3}) \tan{(\theta_0+\Tilde{\theta})})\frac{d\Tilde{\theta}}{dt} + r_2 \frac{F_x}{m_r}
+  \end{cases}
+  \label{eq:b21}
+\end{equation}
+
+On réinjecte ensuite \ref{eq:b20} dans \ref{eq:b21} et on néglige les termes de perturbation d'ordre supérieur ou égal à 2.
+
+\begin{equation}
+  \begin{cases}
+    \frac{d\Tilde{\omega_1}}{dt}=\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{(\theta_0+\Tilde{\theta})}+[\frac{k_2^2}{k_1^2}\omega_{30}] \\
+    
+    \frac{d\Tilde{\omega_2}}{dt}=\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}} \frac{d\Tilde{\theta}}{dt}\\
+    
+    \frac{d\Tilde{\omega_3}}{dt}=[-\frac{k_2^2}{k_1^2}\omega_{20}+\omega{30}\tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2 r_2}{k_1^2 a}\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega/_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\frac{d\Tilde{\theta}}{dt}
+  \end{cases}
+  \label{eq:b21}
+\end{equation}
+
+Comme $\Tilde{\theta} \sim 0$ on considère $\tan{\Tilde{\theta}}\sim \Tilde{\theta}$
+
+
 
 
 
