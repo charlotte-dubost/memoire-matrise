@@ -33,17 +33,21 @@
 
 \section{Etude du saut d'une roue Cyr}
 \subsection{Description du mouvement}
-La roue Cyr est comprimée d'une flèche $\delta$ imposée par une force exercée selon l'axe de son diamètre par une force $F$ puis relâchée. Une partie de l'énergie de déformation élastique est transformée en saut. On notera $H_max$ la hauteur correspondant à l'énergie potentielle par laquelle s'élève le centre de gravité de la roue de sa position au repos à sa hauteur maximale.
+La roue Cyr est comprimée d'une flèche $\delta$ imposée par une force exercée selon l'axe de son diamètre par une force $F$ puis relâchée. Une partie de l'énergie de déformation élastique est transformée en saut. On notera $H_{max}$ la hauteur correspondant à l'énergie potentielle par laquelle s'élève le centre de gravité de la roue de sa position au repos à sa hauteur maximale.
 
 
 \subsubsection{Hypothèses}
 \begin{itemize}
     \item On considère que le support contre lequel la roue est comprimée est parfaitement rigide.
     \item On néglige la force de trainée de l'air.
+    \item La répartition des masses est idéalisée
 \end{itemize}
 
 \subsubsection{Modèle deux degrés de liberté}
-On modélise la roue Cyr par deux masses ponctuelles égales $\frac{m_r}{2}$ reliées par un ressort de longueur à vide $2a$, le diamètre externe de la roue, et de rigidité équivalente $k=\frac{4\pi EI}{(\pi^2 -8)R^3}$ \cite{yangkim}. Les positions des masses sont reperées par les ordonnées $y_1$ et $y_2$.
+On modélise la roue Cyr par deux masses ponctuelles égales $\frac{m_r}{2}$ reliées par un ressort de longueur à vide $2R$, où $R$ correspond au rayon médian de la roue, et de rigidité $k$. \\
+$k$ correspond à la constante élastique qui régit la relation $F=k \delta$, pour un anneau elle dépend du module d'Young $E$, du rayon médian $R$ et du moment quadratique de la section $I$: $k=\frac{4\pi EI}{(\pi^2 -8)R^3}$ \cite{yangkim}
+\\
+ Les positions des masses sont reperées par les ordonnées $y_1$ et $y_2$.
 
 \begin{figure}[htb]
 \centering
@@ -52,8 +56,8 @@ On modélise la roue Cyr par deux masses ponctuelles égales $\frac{m_r}{2}$ rel
 \label{fig:repos}
 \end{figure}
 
-On note $t_0<0$ le moment auquel on relâche le ressort. $t=0$ correspond au moment auquel la masse inférieure quitte le sol, c'est à dire au moment où la force qui lui est transmise par le ressort devient suffisante pour prendre le dessus sur la gravité:$\frac{m_r g}{2}=k(y_1-2a)$. \\
-Les positions des masses à $t=0$ sont donc $y_1=2a+\frac{m_r g}{2k}$ et $y_2=0$
+On note $t_0<0$ le moment auquel on relâche le ressort. $t=0$ correspond au moment auquel la masse inférieure quitte le sol, c'est à dire au moment où la force qui lui est transmise par le ressort devient suffisante pour prendre le dessus sur la gravité:$\frac{m_r g}{2}=k(y_1-2R)$. \\
+Les positions des masses à $t=0$ sont donc $y_1=2R+\frac{m_r g}{2k}$ et $y_2=0$
 On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa hauteur maximale.
 
 \begin{figure}[htb]
@@ -64,33 +68,46 @@ On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa 
 \end{figure}
 
 \subsection{Mise en équations}
+
+Pour $t_0<t<0$, la masse 1 est soumise à deux forces de directions confondues avec l'axe du ressort: son propre poids de norme $-\frac{m_r g}{2}$, ainsi qu'à la force élastique de norme $-k(y_1-2R)$.
+La relation fondamentale de la dynamique se traduit par le système d'équations \ref{eq:1}:
+
 \begin{equation}
    t_0<t<0: 
   \begin{cases}
-    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-2a)+\frac{m_r}{2}g=0\\
-    y_2=0
+    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-2R)+\frac{m_r}{2}g=0\\
+    y_2=0 \\
+    $y_1(t_0)=2R-\frac{F}{k}$
+    $y_1(0)=2R+\frac{m_r g}{2k}$
   \end{cases}
   \label{eq:1}
 \end{equation}
 
-On pose: $\tau=t-t_0$
-Pour $t_0<t<0$, le mouvement est régi par le système suivant:
+
+Pour $t_0<t<0$, le mouvement est donc régi par le système \ref{eq:2}:
 
 \begin{equation}
   \begin{cases}
-    \tau=t-t_0 \\
     \alpha_0=\sqrt{\frac{2k}{m_r}}\\
-    y_1(\tau)=(\frac{m_r g}{2k}-\frac{F}{k})\cos(\alpha_0 \tau)-\frac{m_r g}{2k}+2a \\
+    y_1(t)=(\frac{m_r g}{2k}-\frac{F}{k})\cos(\alpha_0(t-t_0))-\frac{m_r g}{2k}+2R \\
     y_2=0
   \end{cases}
   \label{eq:2}
 \end{equation}
 
+La vitesse initiale de la masse 1 s'exprime $v_{10}=\alpha_0(\frac{m_r g}{2k}-\frac{F}{k})\sin{\alpha_0 t_0}$ \\
+
+Or, comme $y_1(t_0)=2R-\frac{F}{k}$, on a $\cos{(\alpha_0 \t_0)}=\frac{2m_rg}{m_rg-2F}$ et donc $\sin{(\alpha_0 \t_0)}=\sqrt{1-(\frac{2m_rg}{m_rg-2F})^2}$ \\
+D'où $v_{10}=\sqrt{\frac{4F^2 -3(m_r g)^2-4Fm_rg}{2 k m_r}}$
+
+Lorsque $0<t<t_f$, les masses 1 et 2 sont chacune soumises à leur poids et à la force élastique due à la déformation du système.
+La relation fondamentale de la dynamique appliquée aux masses 1 et 2 donne alors:
+
 \begin{equation}
    0<t<t_f: 
   \begin{cases}
-    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-y_2-2a)+\frac{m_r}{2}g=0\\
-    \frac{m_r}{2}\frac{d^2y_2}{dt^2}+k(y_2-y_1+2a)+\frac{m_r}{2}g=0
+    \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-y_2-2R)+\frac{m_r}{2}g=0\\
+    \frac{m_r}{2}\frac{d^2y_2}{dt^2}+k(y_2-y_1+2R)+\frac{m_r}{2}g=0
   \end{cases}
   \label{eq:3}
 \end{equation}
@@ -98,20 +115,20 @@ Pour $t_0<t<0$, le mouvement est régi par le système suivant:
 Avec les conditions initiales: 
 \begin{equation}
   \begin{cases}
-    y_1(0)=2a+\frac{m_r g}{2k}\\
-    \frac{d y1}{dt}(0)=v_{10}\\
+    y_1(0)=2R+\frac{m_r g}{2k}\\
+    \frac{d y_1}{dt}(0)=v_{10}=\sqrt{\frac{4F^2 -3(m_r g)^2-4Fm_rg}{2 k m_r}}\\
     y_2(0)=0 \\
     \frac{d y2}{dt}(0)=0
   \end{cases}
   \label{eq:4}
 \end{equation}
 
-Le mouvement pour $0<t<t_f$ est décrit par les équations:
+En résolvant \ref{eq:3} on obtient les équations décrivant les mouvements des masses 1 et 2 pour $0<t<t_f$:
 
 \begin{equation}
   \begin{cases}
     \alpha=\sqrt{\frac{4k}{m_r}}\\
-    y_1(t)=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t+(\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+\frac{m_r g}{2k}+4a) \\
+    y_1(t)=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t+(\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+\frac{m_r g}{2k}+4R) \\
     y_2(t)=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t-(\frac{m_r g}{2k})\cos{\alpha t}-\frac{v_{10}}{\alpha}\sin{\alpha t}+\frac{m_r g}{2k}) 
   \end{cases}
   \label{eq:5}
@@ -121,7 +138,7 @@ Ce qui nous donne les expressions temporelles de la variation de l'allongement d
 
 \begin{equation}
   \begin{cases}
-    y_1(t)-y_2(t)= (\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+2a\\
+    y_1(t)-y_2(t)= (\frac{m_r g}{2k})\cos{\alpha t}+\frac{v_{10}}{\alpha}\sin{\alpha t}+2R\\
     \frac{y_1(t)+y_2(t)}{2}=\frac{1}{2}(-\frac{g t^2}{2}+v_{10}t+\frac{m_2 g}{k} +2a)
   \end{cases}
   \label{eq:6}
@@ -130,24 +147,16 @@ Ce qui nous donne les expressions temporelles de la variation de l'allongement d
 Ces équations permettent de tracer des animations du mouvement afin de mieux appréhender ce dernier par la suite. Tout au long de l'élévation du centre de gravité de la roue, on peut observer des déformations correspondant au second mode vibratoire d'un anneau (déformations planes).
 \\ 
 \\
-Bilan d'énergie appliqué au système {masse 1 + masse 2 + ressort}
-\begin{itemize}
-    \item On prend pour référence de l'énergie potentielle la position du système à l'équilibre statique: $y_{1,ref}=2a-\frac{m_r g}{2k}$ et $y_{2,ref}=0$.
-    \item $t<t_0$: $E=\frac{F^2}{2k}$
-    \item $t=0$ : $E=\frac{1}{4}m_r v_{10}^2 +\frac{5}{8}\frac{(m_r g)^2}{k} $
-\end{itemize}
 
-On en déduit l'expression de la vitesse de la masse 1 à $t=0$: $v_{10}=\sqrt{\frac{2(F^2-\frac{5(m_r g)^2}{4})}{m_r k}}$ \\
 
 Lorsqu'on arrive à $t=t_f$, la vitesse du centre de gravité s'annule. Il suffit alors de dériver l'expression de la position du centre de gravité déterminée ci-dessus pour obtenir: $t_f=\frac{v_{10}}{g}$, soit: 
-$$ =\sqrt{\frac{2(F^2-\frac{5(m_r g)^2}{4})}{m_r k g^2}}$$
+$$ t_f=\sqrt{\frac{4F^2 -3(m_r g)^2-4Fm_rg}{2 k m_r g^2}}$$
 
-On substitue ensuite cette expression à $t_f$ dans l'expression de la position du centre de gravité pour svoir la hauteur maximale de ce dernier, à laquelle on soustrait $y_{1,ref}$ pour obtenir finalement l'expression de $H_{max}$.
+On substitue ensuite cette expression à $t_f$ dans l'expression de la position du centre de gravité pour avoir la hauteur maximale de ce dernier, à laquelle on soustrait sa position à l'équilibre statique $y_{cdg,ref}=\frac{1}{2}(2R-\frac{m_r g}{2k})$ pour obtenir finalement l'expression de $H_{max}$.
 \\ \\
-Ainsi: $H_{max}=\frac{1}{2}(\frac{F^2}{m_r k g}-\frac{0.25m_r g}{k})$
+Ainsi: $H_{max}=\frac{4F^2+(m_rg)^2-4Fm_rg}{8km_rg}$
 \\
-Ou encore, en fonction de la pulsation propre $\alpha$: $H_{max}=\frac{1}{2}(\frac{4F^2}{m_r^2\alpha^2 g}-\frac{g}{\alpha^2})$.
-\\ \\
+
 Ainsi, les paramètres influençant la hauteur maximale de saut du système sont:
 \begin{itemize}
     \item La force de compression $F$ à laquelle ce dernier est soumis initialement
@@ -156,17 +165,17 @@ Ainsi, les paramètres influençant la hauteur maximale de saut du système sont
 \end{itemize}
 
 L'expression de $H_{max}$ nous permet d'étudier l'efficacité énergétique du système, c'est à dire d'estimer quelle fraction de l'énergie totale fournie au système sous forme de déformation élastique est convertie en énergie potentielle gravitationnelle servant au saut. \\
-Pour cela on s'intéresse au ratio $\frac{E_{p,g}}{E_{tot}}$ des deux quantités décrites précedemment. \\
-Avec $E_{tot}=\frac{F^2}{2k}$ et $E_{p,g}=m_r g H_max$, on obtient:  $\frac{E_{p,g}}{E_{tot}}=1-\frac{(m_r g)^2)}{4F^2}$.
+Pour cela on s'intéresse au ratio $\frac{E_{p,g}}{E_{tot}}$ de ces deux quantités. \\
+Avec $E_{tot}=\frac{F^2}{2k}$ et $E_{p,g}=m_r g H_{max}$, on obtient:  $\frac{E_{p,g}}{E_{tot}}=1-\frac{m_rg}{F}+\frac{(m_r g)^2)}{4F^2}$.
 
 \subsection{Traitement numérique du modèle}
-Dans la partie qui suit, on étudie pour chaque paramètre dont dépendent $H_max$ et le ratio d'efficacité énergétique comment ces derniers évoluent lorsqu'on fait varier un de ces paramètre indépendamment des autres.
+Dans la partie qui suit, on étudie pour chaque paramètre dont dépendent $H_{max}$ et le ratio d'efficacité énergétique comment ces derniers évoluent lorsqu'on fait varier un de ces paramètre indépendamment des autres.
 \\ 
 \\ 
 La variation de ces paramètres doit respecter les valeurs limites suivantes, en dessous desquelles le modèle n'est plus valide:
 \begin{itemize}
-    \item Pour $F$: Pour que le modèle soit valide il faut qu’il y ait un saut, l'énergie de déformation élastique doit être suffisante pour faire décoller la masse 2, ce qui se traduit par: $\frac{1}{2} \frac{F^2}{k}>\frac{(m_r g)^2}{4k}$  soit: $F>\frac{m_r g}{/sqrt{2}}$
-    \item Pour $k$: Le ressort doit pouvoir soutenir la masse 1: $\frac{m_r g}{2k}<2a$ c'est à dire: $k>\frac{m_r g}{4a}$ 
+    \item Pour $F$: Pour que le modèle soit valide il faut qu’il y ait un saut, l'énergie de déformation élastique doit être suffisante pour faire décoller la masse 2, ce qui se traduit par: $\frac{1}{2} \frac{F^2}{k}>\frac{(m_r g)^2}{4k}$  soit: $F>\frac{m_r g}{\sqrt{2}}$
+    \item Pour $k$: Le ressort doit pouvoir soutenir la masse 1: $\frac{m_r g}{2k}<2R$ c'est à dire: $k>\frac{m_r g}{4R}$ 
     \item Pour $m_r$: Diminuer $m_r$ revient à retirer de la matière, il y a donc une masse limite dépendant des propriétés mécaniques du matériau en dessous de laquelle il y aura rupture lors de la compression, la roue étant devenue trop fragile.
 \end{itemize}
 Les limites seront indiquées par des pointillés sur les tracés plus bas
@@ -198,8 +207,8 @@ Si on fait varier un paramètre indépendamment des autres, il est nécessaire d
 \begin{itemize}
 	\item Les géométries considérées sont celles présentées en  Figures \ref{fig:geo1} et \ref{fig:geo2}
 	\item On considère que la force $F$ appliquée au système a pour norme $900 N$, correspondant au poids d'un athlète se suspendant à une main à la roue.
-	\item Les propriétés mécaniques de l'acier sont les suivantes $E_a=210GPa$, $rho_a=7800 kg m^-3$
-	\item Pour le matériau composite, on considère dans un premier temps qu'il s'agit d'une matrice nylon renforcée de fibres de carbones courtes, qu'on considère isotrope. On a donc: $E_c=9 GPa$, $G=3.8 GPa$, $rho_c=1170 kg m^-3$, avec une contrainte à la rupture $\sigma_r=63 MPa$
+	\item Les propriétés mécaniques de l'acier sont les suivantes $E_a=210GPa$, $\rho_a=7800 kg m^-3$
+	\item Pour le matériau composite, on considère dans un premier temps qu'il s'agit d'une matrice nylon renforcée de fibres de carbones courtes, qu'on considère isotrope. On a donc: $E_c=9 GPa$, $G=3.8 GPa$, $\rho_c=1170 kg m^-3$, avec une contrainte à la rupture $\sigma_r=63 MPa$
 \end{itemize}
 Dans ce qui suit, lorsqu'on fait varier une seul paramètre, les autres, momentanément fixés, prennent les valeurs qui leur ont été attribuées ci-dessus.
 \\
@@ -275,9 +284,9 @@ Premièrement, avec ces données il est possible de déterminer la masse minimal
 Remarques:
 \begin{itemize}
     \item Les tracés adimensionnels permettent d'étudier une tendance globale, ainsi que de s'affranchir de la dépendance des résultats avec les autres paramètres.
-    \item Le rendement énergétique minimal est 0.57, lorsque $F$ est égale à sa valeur limite
-    \item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique avoisine les 100\% à partir d'une certaine force ($F=200 N$ dans notre cas )
-    \item Une variation de la masse influe peu sur l'efficacité énergétique, qui reste élevée sur la figure \ref{fig:epm}, tracée pour une force $F=900 N$. La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, l'accentuation de la pente, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée.
+    \item Pour les roues composites définies plus haut, et le modèle étudié présentement, le rendement énergétique atteint un pallier à partir d'une certaine force ($F \sim 500 N$ dans notre cas )
+    \item Pour une force $F=900 N$ imposée, une variation de la masse du système n'influe que légèrement sur l'efficacité énergétique (sa valeur la plus basse est environ 75$\%$, ce qui est acceptable) . La force appliquée à la roue est le paramètre déterminant pour cette dernière. Dans la continuité de cette observation, l'accentuation de la pente $\frac{H_{max}}{F}$, croissante avec la force, traduit une "rentabilité" de l'énergie d'autant meilleure que la force qu'on applique est élevée.
+    \item Pour avoir un rendement énergétique correct, le poids de la roue doit être inférieur à la moitié de la norme de la force de compression $F$
     \item A l'inverse, la courbe $H_{max}=f(k)$ s'aplatit rapidement à mesure que la raideur augmente. Il s'agit de trouver un compromis entre la solidité et la maximisation de la hauteur de saut.
 \end{itemize}
 
@@ -396,13 +405,13 @@ Le moment cinétique au centre de masse s'exprime $\vec{L_C0}=I \cdot \vec{\omeg
 $$
 I=
 \begin{pmatrix}
-   m_r (\frac{1}{2}R^2+\frac{5}{8}R_2^2) & 0  &  0 \\
+   m_r (\frac{1}{2}R^2+\frac{5}{8}r_2^2) & 0  &  0 \\
   0 &  m_r(R^2+\frac{3}{4}r_2^2) & 0 \\
-  0 & 0 & m_r (\frac{1}{2}R^2+\frac{5}{8}R_2^2)
+  0 & 0 & m_r (\frac{1}{2}R^2+\frac{5}{8}r_2^2)
 \end{pmatrix}
 $$
 
-Notons $k_1^2=\frac{1}{2}R^2+\frac{5}{8}R_2^2$ et $k_2^2=R^2+\frac{3}{4}r_2^2$
+Notons $k_1^2=\frac{1}{2}R^2+\frac{5}{8}r_2^2$ et $k_2^2=R^2+\frac{3}{4}r_2^2$
 
 Les composantes du moment cinétique dans $C_{\xi \eta \zeta}$ s'écrivent donc:
 \begin{equation}
