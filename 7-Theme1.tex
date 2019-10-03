@@ -609,19 +609,52 @@ On réinjecte ensuite \ref{eq:b20} dans \ref{eq:b21} et on néglige les termes d
 
 \begin{equation}
   \begin{cases}
-    \frac{d\Tilde{\omega_1}}{dt}=\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{(\theta_0+\Tilde{\theta})}+[\frac{k_2^2}{k_1^2}\omega_{30}] \\
+    \frac{d\Tilde{\omega_1}}{dt}=\frac{R^2}{k_1^2}\sin{(\theta_0+\Tilde{\theta})}^2\frac{d^2\Tilde{\theta}}{dt^2}+\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{(\theta_0+\Tilde{\theta})}[\frac{R}{k_1^2}(R\sin{(\theta_0+\Tilde{\theta})}+r_2\tan{(\theta_0+\Tilde{\theta})})+1]\\
+    +(R\cos{(\theta_0+\Tilde{\theta})}+r_2)^2\frac{\omega_{20}\omega_{30}}{k_1^2 \cos{(\theta_0+\Tilde{\theta})}}+\frac{R}{k_1^2}g \sin{(\theta_0+\Tilde{\theta})}+[(\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{(\theta_0+\Tilde{\theta})}\\
+    -R^2\sin{(\theta_0+\Tilde{\theta})}-(1+\frac{R r_2}{k_1^2})2\omega_{30}\tan{(\theta_0+\Tilde{\theta})})(\omega_{30}\tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}\omega_{20})\\
+    +\frac{k_2^2}{k_1^2}(\omega_{30}+\frac{2r_2}{a}\omega_{30} \tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20}+\frac{(R\cos{(\theta_0+\Tilde{\theta})}+r_2)^2}{k_2^2\cos{(\theta_0+\Tilde{\theta})}}(\omega_{30}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20})+\frac{2R r_2}{a k_1^2}(R\sin{(\theta_0+\Tilde{\theta})}\\
+    +r_2 \tan{(\theta_0+\Tilde{\theta})})\omega_{30})\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\Tilde{\theta} \\
+    \\
     
     \frac{d\Tilde{\omega_2}}{dt}=\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}} \frac{d\Tilde{\theta}}{dt}\\
+    \\
     
-    \frac{d\Tilde{\omega_3}}{dt}=[-\frac{k_2^2}{k_1^2}\omega_{20}+\omega{30}\tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2 r_2}{k_1^2 a}\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega/_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\frac{d\Tilde{\theta}}{dt}
+    \frac{d\Tilde{\omega_3}}{dt}=[-\frac{k_2^2}{k_1^2}\omega_{20}+\omega_{30}\tan{(\theta_0+\Tilde{\theta})}\\
+    -\frac{k_2^2 r_2}{k_1^2 a}\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega/_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\frac{d\Tilde{\theta}}{dt}
   \end{cases}
-  \label{eq:b21}
+  \label{eq:b22}
 \end{equation}
 
-Comme $\Tilde{\theta} \sim 0$ on considère $\tan{\Tilde{\theta}}\sim \Tilde{\theta}$
+Comme $\Tilde{\theta} \sim 0$ on simplifie \ref{eq:b22} avec les approximations suivantes:
+$$
+\sin{(\theta_0+\Tilde{\theta})} \sim \sin{\theta_0}+\cos{\theta_0}\Tilde{\theta} 
+$$
+$$
+\cos{(\theta_0+\Tilde{\theta})} \sim \cos{\theta_0}+\sin{\theta_0}\Tilde{\theta} \\
+$$
+$$
+\tan{(\theta_0+\Tilde{\theta})} \sim \frac{\tan{\theta_0}+\Tilde{\theta}}{1-\tan{\theta_0}\Tilde{\theta}}
+$$
 
+Ce qui donne:
 
-
+\begin{equation}
+  \begin{cases}
+    \frac{d\Tilde{\omega_1}}{dt}=\frac{R^2}{k_1^2}\sin{(\theta_0+\Tilde{\theta})}^2\frac{d^2\Tilde{\theta}}{dt^2}+\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{(\theta_0+\Tilde{\theta})}[\frac{R}{k_1^2}(R\sin{(\theta_0+\Tilde{\theta})}+r_2\tan{(\theta_0+\Tilde{\theta})})+1]\\
+    +(R\cos{(\theta_0+\Tilde{\theta})}+r_2)^2\frac{\omega_{20}\omega_{30}}{k_1^2 \cos{(\theta_0+\Tilde{\theta})}}+\frac{R}{k_1^2}g \sin{(\theta_0+\Tilde{\theta})}+[(\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{(\theta_0+\Tilde{\theta})}\\
+    -R^2\sin{(\theta_0+\Tilde{\theta})}-(1+\frac{R r_2}{k_1^2})2\omega_{30}\tan{(\theta_0+\Tilde{\theta})})(\omega_{30}\tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}\omega_{20})\\
+    +\frac{k_2^2}{k_1^2}(\omega_{30}+\frac{2r_2}{a}\omega_{30} \tan{(\theta_0+\Tilde{\theta})}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20}+\frac{(R\cos{(\theta_0+\Tilde{\theta})}+r_2)^2}{k_2^2\cos{(\theta_0+\Tilde{\theta})}}(\omega_{30}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20})+\frac{2R r_2}{a k_1^2}(R\sin{(\theta_0+\Tilde{\theta})}\\
+    +r_2 \tan{(\theta_0+\Tilde{\theta})})\omega_{30})\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\Tilde{\theta} \\
+    \\
+    
+    \frac{d\Tilde{\omega_2}}{dt}=\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}} \frac{d\Tilde{\theta}}{dt}\\
+    \\
+    
+    \frac{d\Tilde{\omega_3}}{dt}=[-\frac{k_2^2}{k_1^2}\omega_{20}+\omega_{30}\tan{(\theta_0+\Tilde{\theta})}\\
+    -\frac{k_2^2 r_2}{k_1^2 a}\frac{\omega_{20}[R\sin{(\theta_0+\Tilde{\theta})}-\frac{k_2^2}{k_1^2}R\sin{(\theta_0+\Tilde{\theta})}]+\omega/_{30}[R(1+\cos{(\theta_0+\Tilde{\theta})})+\frac{r_2}{\cos{(\theta_0+\Tilde{\theta})}}+R\sin{(\theta_0+\Tilde{\theta})}\tan{(\theta_0+\Tilde{\theta})}]}{\frac{k_2^2}{a}+R\cos{(\theta_0+\Tilde{\theta})}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{(\theta_0+\Tilde{\theta})}}]\frac{d\Tilde{\theta}}{dt}
+  \end{cases}
+  \label{eq:b23}
+\end{equation}
 
 
 \subsection{Cartes de stabilité}
