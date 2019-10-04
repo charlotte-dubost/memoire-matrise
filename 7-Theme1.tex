@@ -56,7 +56,7 @@ $k$ correspond à la constante élastique qui régit la relation $F=k \delta$, p
 \label{fig:repos}
 \end{figure}
 
-On note $t_0<0$ le moment auquel on relâche le ressort. $t=0$ correspond au moment auquel la masse inférieure quitte le sol, c'est à dire au moment où la force qui lui est transmise par le ressort devient suffisante pour prendre le dessus sur la gravité:$\frac{m_r g}{2}=k(y_1-2R)$. \\
+On note $-t_0<0$ le moment auquel on relâche le ressort. $t=0$ correspond au moment auquel la masse inférieure quitte le sol, c'est à dire au moment où la force qui lui est transmise par le ressort devient suffisante pour prendre le dessus sur la gravité:$\frac{m_r g}{2}=k(y_1-2R)$. \\
 Les positions des masses à $t=0$ sont donc $y_1=2R+\frac{m_r g}{2k}$ et $y_2=0$
 On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa hauteur maximale.
 
@@ -69,11 +69,11 @@ On note $t_f$ le temps pour lequel le centre de gravité du système atteint sa 
 
 \subsection{Mise en équations}
 
-Pour $t_0<t<0$, la masse 1 est soumise à deux forces de directions confondues avec l'axe du ressort: son propre poids de norme $-\frac{m_r g}{2}$, ainsi qu'à la force élastique de norme $-k(y_1-2R)$.
+Pour $-t_0<t<0$, la masse 1 est soumise à deux forces de directions confondues avec l'axe du ressort: son propre poids de norme $-\frac{m_r g}{2}$, ainsi qu'à la force élastique de norme $-k(y_1-2R)$.
 La relation fondamentale de la dynamique se traduit par le système d'équations \ref{eq:1}:
 
 \begin{equation}
-   t_0<t<0: 
+   -t_0<t<0: 
   \begin{cases}
     \frac{m_r}{2}\frac{d^2y_1}{dt^2}+k(y_1-2R)+\frac{m_r}{2}g=0\\
     y_2=0 \\
@@ -84,7 +84,7 @@ La relation fondamentale de la dynamique se traduit par le système d'équations
 \end{equation}
 
 
-Pour $t_0<t<0$, le mouvement est donc régi par le système \ref{eq:2}:
+Pour $-t_0<t<0$, le mouvement est donc régi par le système \ref{eq:2}:
 
 \begin{equation}
   \begin{cases}
@@ -97,8 +97,8 @@ Pour $t_0<t<0$, le mouvement est donc régi par le système \ref{eq:2}:
 
 La vitesse initiale de la masse 1 s'exprime $v_{10}=\alpha_0(\frac{m_r g}{2k}-\frac{F}{k})\sin{\alpha_0 t_0}$ \\
 
-Or, comme $y_1(t_0)=2R-\frac{F}{k}$, on a $\cos{(\alpha_0 \t_0)}=\frac{2m_rg}{m_rg-2F}$ et donc $\sin{(\alpha_0 \t_0)}=\sqrt{1-(\frac{2m_rg}{m_rg-2F})^2}$ \\
-D'où $v_{10}=\sqrt{\frac{4F^2 -3(m_r g)^2-4Fm_rg}{2 k m_r}}$
+Or, comme $$y_1(t_0)=2R-\frac{F}{k}$$, on a $$\cos{(\alpha_0 \t_0)}=\frac{2m_rg}{m_rg-2F}$$ et donc $$\sin{(\alpha_0 \t_0)}=\sqrt{1-(\frac{2m_rg}{m_rg-2F})^2}$$ \\
+D'où $$v_{10}=\sqrt{\frac{4F^2 -3(m_r g)^2-4Fm_rg}{2 k m_r}}$$
 
 Lorsque $0<t<t_f$, les masses 1 et 2 sont chacune soumises à leur poids et à la force élastique due à la déformation du système.
 La relation fondamentale de la dynamique appliquée aux masses 1 et 2 donne alors:
@@ -347,6 +347,12 @@ On reprend les trois référentiels utilisés par Batista: $OXYZ$, $C{xzy}$ et $
 \end{figure}
 
 \subsubsection{Equations}
+On considère une roue à géométrie torique de rayon médian $R$, de rayon exterieur $a$, et de rayon externe de section $r_2$ (on a $a=R+r_2$).\\
+La position de la roue dans les référentiels présentés en figures \ref{fig:ref1} et \ref{fig:ref2} est décrite par les angles d'Euler: \\
+$\theta$ décrit son inclinaison par rapport à la verticale: pour $\theta=\frac{\pi}{2}$, la roue est à plat sur le sol. \\
+$\phi$ décrit la rotation de la roue, autour de son axe $eta$
+$\psi$ décrit la rotation de la roue autour de l'axe $Z$ du référentiel fixe.
+
 Le mouvement de la roue est régie par les équations cinématiques suivantes \cite{Batista}:
 \begin{equation}
   \begin{cases}
@@ -365,8 +371,8 @@ Les coordonnées du point de contact P dans C{xzy}, schématisé dans la figure 
 \begin{equation}
   \begin{cases}
     x_P=0\\
-    y_P=(a-r_2)\sin{\theta_0}=R\sin{\theta_0}\\
-    z_P=-(a-r_2)\cos{\theta_0}-r_2=-R\cos{\theta_0}-r_2\\
+    y_P=R\sin{\theta_0}=R\sin{\theta_0}\\
+    z_P=-R\cos{\theta_0}-r_2=-R\cos{\theta_0}-r_2\\
   \end{cases}
   \label{eq:b2}
 \end{equation}
@@ -605,7 +611,7 @@ De la même manière que pour l'équation \ref{eq:b8}, on utilise la relation fo
   \label{eq:b21}
 \end{equation}
 
-On réinjecte ensuite \ref{eq:b20} dans \ref{eq:b21} et on néglige les termes de perturbation d'ordre supérieur ou égal à 2.
+On réinjecte ensuite \ref{eq:b20} dans \ref{eq:b21}, en simplifiant les expressions à l'aide de développements limités et on néglige les termes de perturbation d'ordre supérieur ou égal à 2.
 
 \begin{equation}
   \begin{cases}
@@ -633,21 +639,16 @@ $$
 \cos{(\theta_0+\Tilde{\theta})} \sim \cos{\theta_0}+\sin{\theta_0}\Tilde{\theta} \\
 $$
 $$
-\tan{(\theta_0+\Tilde{\theta})} \sim \frac{\tan{\theta_0}+\Tilde{\theta}}{1-\tan{\theta_0}\Tilde{\theta}} \sim \tan{\theta_0}+(1+\tan{\theta_0}^2)\Tilde{\theta} $$ (DL ordre 2)
+\tan{(\theta_0+\Tilde{\theta})} \sim \frac{\tan{\theta_0}+\Tilde{\theta}}{1-\tan{\theta_0}\Tilde{\theta}} \sim \tan{\theta_0}+(1+\tan{\theta_0}^2)\Tilde{\theta} $$ 
 
 
 Ce qui donne:
 
 \begin{equation}
   \begin{cases}
-    \frac{d\Tilde{\omega_1}}{dt}=\frac{R^2}{k_1^2}\sin{\theta_0}^2\frac{d^2\Tilde{\theta}}{dt^2}+\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2(\tan{\theta_0}+(1+\tan{\theta_0}^2)\Tilde{\theta})[\frac{R}{k_1^2}(R(\sin{\theta_0}+\cos{\theta_0}\Tilde{\theta} )\\
+    \frac{d\Tilde{\omega_1}}{dt}=\frac{R^2}{k_1^2}\sin{\theta_0}^2\frac{d^2\Tilde{\theta}}{dt^2}+\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{\theta_0}(\frac{R^2}{k_1^2}\sin{\theta_0}+\frac{R r_2}{k_1^2}+1)+2(R\cos{\theta_0}+r_2)^2\frac{\omega_{20}\omega_{30}}{k_1^2 \cos{\theta_0}}+\frac{R}{k_1^2}g\sin{\theta_0}
     
-    +r_2(\tan{\theta_0}+(1+\tan{\theta_0}^2)\Tilde{\theta}))+1]
-    +(R(\cos{\theta_0}+\sin{\theta_0}\Tilde{\theta})+r_2)^2\frac{\omega_{20}\omega_{30}}{k_1^2}(\frac{1}{\cos{\theta_0}}+\frac{\sin{\theta_0}}{\cos{\theta_0}^2}\Tilde{\theta})\\
-    
-    +\frac{R}{k_1^2}g (\sin{\theta_0}+\cos{\theta_0}\Tilde{\theta} )
-    
-    +[(\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{\theta_0}
+    +[-\omega_{30}^2(1+\tan{\theta_0}^2)(\frac{R^2}{k_1^2}\sin{\theta_0}+\frac{2R r_2}{k_1^2}\tan{\theta_0}+1)-\omega_{30}^2\frac{R^2}{k_1^2}\sin{\theta_0}+(R+\frac{r_2}{\cos{\theta_0}})^2\frac{2\omega_{20}\omega_{30}}{\k_1^2}\sin{\theta_0}+(R\cos(\theta_0)+r_2)\frac{2R\omega_{20}\omega_{30}}{k_1^2}\tan{\theta_0}+\frac{R}{k_1^2}g\cos{\theta_0}+(\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{\theta_0}
     
     -R^2\sin{\theta_0}-(1+\frac{R r_2}{k_1^2})2\omega_{30}\tan{\theta_0})(\omega_{30}\tan{\theta_0}-\frac{k_2^2}{k_1^2}\omega_{20})\\
     
@@ -665,6 +666,61 @@ Ce qui donne:
   \label{eq:b23}
 \end{equation}
 
+Or comme $\Tilde{\omega_1}=\frac{d\Tilde{\theta}}{dt}$, \ref{eq:b23} devient:
+
+\begin{equation}
+  \begin{cases}
+    \frac{d^2\Tilde{\theta}}{dt^2}={\frac{k_2^2}{k_1^2}\omega_{20}\omega_{30}-\omega_{30}^2\tan{\theta_0}(\frac{R^2}{k_1^2}\sin{\theta_0}+\frac{R r_2}{k_1^2}+1)+2(R\cos{\theta_0}+r_2)^2\frac{\omega_{20}\omega_{30}}{k_1^2 \cos{\theta_0}}+\frac{R}{k_1^2}g\sin{\theta_0}
+    
+    -\omega_{30}^2(1+\tan{\theta_0}^2)(\frac{R^2}{k_1^2}\sin{\theta_0}+\frac{2R r_2}{k_1^2}\tan{\theta_0}+1)-\omega_{30}^2\frac{R^2}{k_1^2}\sin{\theta_0}+(R+\frac{r_2}{\cos{\theta_0}})^2\frac{2\omega_{20}\omega_{30}}{\k_1^2}\sin{\theta_0}+(R\cos(\theta_0)+r_2)\frac{2R\omega_{20}\omega_{30}}{k_1^2}\tan{\theta_0}+\frac{R}{k_1^2}g\cos{\theta_0}}\frac{k_1^2}{k_1^2-R^2\sin_{\theta_0}^2}+[\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{\theta_0}
+    
+    -R^2\sin{\theta_0}-(1+\frac{R r_2}{k_1^2})2\omega_{30}\tan{\theta_0})(\omega_{30}\tan{\theta_0}-\frac{k_2^2}{k_1^2}\omega_{20})\\
+    
+    +\frac{k_2^2}{k_1^2}(\omega_{30}+\frac{2r_2}{a}\omega_{30} \tan{\theta_0}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20}+\frac{(R\cos{\theta_0}+r_2)^2}{k_2^2\cos{\theta_0}}(\omega_{30}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20})+\frac{2R r_2}{a k_1^2}(R\sin{\theta_0}\\
+    
+    +r_2 \tan{\theta_0})\omega_{30})\frac{\omega_{20}[R\sin{\theta_0}-\frac{k_2^2}{k_1^2}R\sin{\theta_0}]+\omega_{30}[R(1+\cos{\theta_0})+\frac{r_2}{\cos{\theta_0}}+R\sin{\theta_0}\tan{\theta_0}]}{\frac{k_2^2}{a}+R\cos{\theta_0}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{\theta_0}}]\frac{k_1^2}{k_1^2-R^2\sin_{\theta_0}^2}\Tilde{\theta} \\
+    \\
+    
+    \frac{d\Tilde{\omega_2}}{dt}=\frac{\omega_{20}[R\sin{\theta_0}-\frac{k_2^2}{k_1^2}R\sin{\theta_0}]+\omega_{30}[R(1+\cos{\theta_0})+\frac{r_2}{\cos{\theta_0}}+R\sin{\theta_0}\tan{\theta_0}]}{\frac{k_2^2}{a}+R\cos{\theta_0}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{\theta_0}} \frac{d\Tilde{\theta}}{dt}\\
+    \\
+    
+    \frac{d\Tilde{\omega_3}}{dt}=[-\frac{k_2^2}{k_1^2}\omega_{20}+\omega_{30}\tan{\theta_0}
+    -\frac{k_2^2 r_2}{k_1^2 a}\frac{\omega_{20}[R\sin{\theta_0}-\frac{k_2^2}{k_1^2}R\sin{\theta_0}]+\omega_{30}[R(1+\cos{\theta_0})+\frac{r_2}{\cos{\theta_0}}+R\sin{\theta_0}\tan{\theta_0}]}{\frac{k_2^2}{a}+R\cos{\theta_0}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{\theta_0}}]\frac{d\Tilde{\theta}}{dt}
+  \end{cases}
+  \label{eq:b24}
+\end{equation}
+
+Pour que le système ait une solution, et donc que la roue reste stable en cas de perturbation, il faut que:
+
+$[\frac{k_2^2}{k_1^2}\omega_{20}-2\omega_{30}\tan{\theta_0} -R^2\sin{\theta_0}-(1+\frac{R r_2}{k_1^2})2\omega_{30}\tan{\theta_0})(\omega_{30}\tan{\theta_0}-\frac{k_2^2}{k_1^2}\omega_{20}) +\frac{k_2^2}{k_1^2}(\omega_{30}+\frac{2r_2}{a}\omega_{30} \tan{\theta_0}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20}+\frac{(R\cos{\theta_0}+r_2)^2}{k_2^2\cos{\theta_0}}(\omega_{30}-\frac{k_2^2 r_2}{k_1^2 a}\omega_{20})+\frac{2R r_2}{a k_1^2}(R\sin{\theta_0}\\
+    +r_2 \tan{\theta_0})\omega_{30})\frac{\omega_{20}[R\sin{\theta_0}-\frac{k_2^2}{k_1^2}R\sin{\theta_0}]+\omega_{30}[R(1+\cos{\theta_0})+\frac{r_2}{\cos{\theta_0}}+R\sin{\theta_0}\tan{\theta_0}]}{\frac{k_2^2}{a}+R\cos{\theta_0}+r_2+\frac{k_2^2 r_2}{k_1^2 a}R\sin{\theta_0}}]\frac{k_1^2}{k_1^2-R^2\sin_{\theta_0}^2} < 0
+$
+
+
+D'après l'équation \ref{eq:b1}:
+
+\begin{equation}
+  \begin{cases}
+    \omega_{20}=\omega_0 + \Omega_0 \sin{\theta_0}
+    \omega_{30}=\Omega_0 \cos{\theta_0}
+  \end{cases}
+  \label{eq:b10}
+\end{equation}
+
+L'expression de $\Omega_0$ en fonction de $\theta_0$ et $\omega_0$ est donnée par les équations \ref{eq:b13} et \ref{eq:b14}
+
+\begin{equation}
+ \Omega_0=\frac{-\omega_0[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))] \pm \sqrt{\Delta} }{2[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]}
+\end{equation}
+
+avec 
+
+\begin{equation}
+ \begin{split}
+ \Delta=\omega_0^2[k_2^2 \cos(\theta_0)+(R+r_2)(R \cos(\theta_0))]^2 \\
+ -4 R g \sin(\theta_0)[(k_2^2-k_1^2)\sin(\theta_0)\cos(\theta_0)+(R \cos(\theta_0)+r_2)[(R+r_2)\sin(\theta_0)-r_2 \cos(\theta_0)]]
+ \end{split}
+\end{equation}
 
 \subsection{Cartes de stabilité}
 
